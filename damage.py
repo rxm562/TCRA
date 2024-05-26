@@ -41,3 +41,8 @@ def sample_damage_state(Pr):
         damage_state[p < Pr[DS_names]] = DS_names
 
     return damage_state
+
+
+# Damage State Mapping
+DamageStateMap = {None:0, 'Slight': 1, 'Moderate': 2, 'Extensive':3, 'Complete': 4}
+damage_state.map(DamageStateMap)
