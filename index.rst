@@ -8,18 +8,6 @@ Overview
 
 Dependency
 ----------
-* networkx
-* dolium
-* scipy
-* matplotlib
-* numpy
-* pandas
-* fiona
-* ipyleaflet
-* pyproj
-* os
-
-
 * numpy
 * pandas
 * folium
