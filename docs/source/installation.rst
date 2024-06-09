@@ -7,24 +7,31 @@ Installation
 Setup Python Environment
 ------------------------------
 
-TSNet is tested against Python versions 3.5, 3.6, and 3.7.
-It can be installed on Windows, Linux, and Mac OS X operating systems.
-Python distributions, such as Anaconda, are recommended to manage the Python
-environment as they already contain (or easily support installation of) many
-Python packages (e.g. SciPy, NumPy, pandas, pip, matplotlib, etc.) that are
-used in the TSNet package.  For more information on Python package
+TCRA depends on a number of packages.  For more information on Python package
 dependencies, see :ref:`Dependencies`.
 
-Stable Release (for users)
---------------------------
+Installation
+------------
 
-To install TSNet, run this command in your terminal:
+To install TCRA, run this command in your terminal:
 
 .. code-block:: console
 
-    $ pip install tsnet
+    $ pip install tcra
 
-This is the preferred method to install tsnet, as it will always install the
+Importing TCRA
+---------------------
+
+Once installed, you can import TCRA into your Python scripts or Jupyter notebooks. Here's a simple example:
+
+.. code-block:: python
+
+   import tcra
+
+   # Now you can use the tcra functions and classes in your code
+
+
+This is the preferred method to install tcra, as it will always install the
 most recent stable release.
 
 If you don't have `pip`_ installed, this `Python installation guide`_ can guide
@@ -43,13 +50,10 @@ You can either clone the public repository:
 
 .. code-block:: console
 
-    $ git clone git://github.com/glorialulu/tsnet
+    $ git clone git://github.com/rxm562/TCRA
 
 Or download the `tarball`_:
 
-.. code-block:: console
-
-    $ curl  -OL https://github.com/glorialulu/tsnet/tarball/master
 
 Once you have a copy of the source, you can install it with:
 
@@ -58,35 +62,34 @@ Once you have a copy of the source, you can install it with:
     $ python setup.py install
 
 
-.. _Github repo: https://github.com/glorialulu/tsnet
-.. _tarball: https://github.com/glorialulu/tsnet/tarball/master
+.. _Github repo: https://github.com/rxm562/TCRA
 
 .. _Dependencies:
 
 Dependencies
 ------------
 
-Requirements for TSNet include Python (3.5, 3.6, or 3.7) along with
-several Python packages.
+Requirements for TSNet include Python (3.5, 3.6, or 3.7) along with several Python packages.
+
 The following Python packages are required::
 
-1.  Numpy [VaCV11]_: the fundamental package needed for scientific computing with Python
+1.  Numpy : the fundamental package needed for scientific computing with Python
     included in Anaconda distribution
     http://www.numpy.org/
 
-2.  Matplotlib [Hunt07]_: Python 2D plotting library
+2.  Matplotlib : Python 2D plotting library
     included in Anaconda distribution
     http://matplotlib.org/
 
-3.  NetworkX [HaSS08]_: Network creation and manipulation engine,
-    install on a python-enabled command line with `pip install wntr`
-    https://networkx.github.io/
+3.  Pandas : pandas is a fast, powerful, flexible and easy to use open source data analysis 
+    and manipulation tool, built on top of the Python programming language.
+    https://pandas.pydata.org/
 
-4.  WNTR [WNTRSi]_: Water Network Tool for Resilience
-    install on a python-enabled command line with `pip install wntr`
-    http://wntr.readthedocs.io
+4.  Scipy : SciPy is a free and open-source Python library used for scientific 
+    computing and technical computing.
+    https://scipy.org/
 
-5.  pytest: Unit Tests engine
-    install on a python-enabled command line with `pip install -U pytest`
-    https://docs.pytest.org/en/latest/
+5.  Folium : Folium builds on the data wrangling strengths of the Python ecosystem and the mapping 
+    strengths of the Leaflet.js library.
+    https://python-visualization.github.io/folium/latest/#
 
