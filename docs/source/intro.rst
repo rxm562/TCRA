@@ -3,7 +3,8 @@
 ============
 Overview
 ============
-
+Introduction
+----------
 .. figure:: figures/logo_tcra.png
    :scale: 15%
    :alt: Logo
