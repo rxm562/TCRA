@@ -1,6 +1,6 @@
 
-.. figure:: figures/logo_tcra.png
-   :scale: 100 %
+.. figure:: docs/figures/logo_tcra.png
+   :scale: 10 %
    :alt: Logo
    
 
