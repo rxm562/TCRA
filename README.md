@@ -23,7 +23,7 @@ Version Reslease
 
 Authors
 -----------------
-* This tool is developed by [Ram Krishna Mazumder, Ph.D.](https://rxm562.github.io/), Asset Management Consultant/Structural Engineer, Arcadis U.S. Inc.
+* This tool is developed by [Ram Krishna Mazumder, Ph.D., P.E.](https://rxm562.github.io/), Asset Management Consultant/Structural Engineer, Arcadis U.S. Inc.
 
 Funding Acknowledgement
 ----------------------
