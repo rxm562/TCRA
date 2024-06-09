@@ -4,8 +4,8 @@
 Overview
 ============
 
-.. figure:: logo_tcra.png
-   :scale: 20%
+.. figure:: figures/logo_tcra.png
+   :scale: 10%
    :alt: Logo
    
 **Tropical Cyclone Risk Analysis [TCRA]** is a Python package that allows developing scenario-based earthquake damage and renewal cost estimation for buried pipeline networks. This tool gives an interactive damage scenario for distributed buried water infrastructures.
@@ -32,7 +32,7 @@ Funding Acknowledgement
 ----------------------
 * This tool development is partly supported by the [Coalition for Disaster Resilient Infrastructure (CDRI)] (https://www.cdri.world/) fellowship 2023-24 Cohort under the Project titled "Community Disaster Resilience Assessment by Integrating Functionality of Buildings and Critical Infrastructure Systems". The development of this tool is not necessarily expressed the view of the CDRI.
 
-.. figure:: cdri-logo.png
+.. figure:: figures/cdri-logo.png
    :scale: 100%
    :alt: Logo
 
