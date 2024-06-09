@@ -7,7 +7,7 @@ Submodules
 tcra.simulation.DamageAnalysis module
 ----------------------------------
 
-.. automodule:: tsnet.simulation.DamageAnalysis
+.. automodule:: tcra.simulation.DamageAnalysis
     :members:
     :undoc-members:
     :show-inheritance:
