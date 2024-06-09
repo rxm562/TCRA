@@ -3,6 +3,14 @@
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
+# autosummary
+import glob
+autosummary_generate = glob.glob("apidocs/*.rst")
+
+# source_suffix = ['.rst', '.md']
+source_suffix = '.rst'
+
+
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
@@ -19,6 +27,8 @@ extensions = []
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+
+
 
 
 
