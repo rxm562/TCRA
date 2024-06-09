@@ -1,3 +1,9 @@
+"""
+The tcra.simulation.DamageAnalysis perform damage estimation.
+
+"""
+
+
 import numpy as np
 import pandas as pd
 from scipy.stats import lognorm
