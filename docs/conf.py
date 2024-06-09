@@ -3,13 +3,6 @@
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-# autosummary
-import glob
-autosummary_generate = glob.glob("apidocs/*.rst")
-
-# source_suffix = ['.rst', '.md']
-source_suffix = '.rst'
-
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
@@ -17,7 +10,7 @@ source_suffix = '.rst'
 project = 'TCRA'
 copyright = '2024, Ram Krishna Mazumder'
 author = 'Ram Krishna Mazumder'
-release = '1.1.1'
+release = '0.0.1'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
