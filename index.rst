@@ -1,4 +1,3 @@
-# TCRA
 **Tropical Cyclone Risk Analysis [TCRA]**
 
 
@@ -23,11 +22,11 @@ Version Reslease
 
 Authors
 -----------------
-* This tool is developed by [Ram Krishna Mazumder, Ph.D., P.E.](https://rxm562.github.io/), Asset Management Consultant/Structural Engineer, Arcadis U.S. Inc.
+* This tool is developed by [Ram Krishna Mazumder, Ph.D., P.E.] (https://rxm562.github.io/), Asset Management Consultant/Structural Engineer, Arcadis U.S. Inc.
 
 Funding Acknowledgement
 ----------------------
-* This tool development is partly supported by the [Coalition for Disaster Resilient Infrastructure (CDRI)](https://www.cdri.world/) fellowship 2023-24 Cohort under the Project titled "Community Disaster Resilience Assessment by Integrating Functionality of Buildings and Critical Infrastructure Systems". The development of this tool is not necessarily expressed the view of the CDRI.
+* This tool development is partly supported by the [Coalition for Disaster Resilient Infrastructure (CDRI)] (https://www.cdri.world/) fellowship 2023-24 Cohort under the Project titled "Community Disaster Resilience Assessment by Integrating Functionality of Buildings and Critical Infrastructure Systems". The development of this tool is not necessarily expressed the view of the CDRI.
 
 
 License
