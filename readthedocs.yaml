@@ -10,7 +10,7 @@ python:
     - requirements: docs/requirements.txt
 
 sphinx:
-  configuration: conf.py
+  configuration: conf.py  # Ensure the path is correct
 
 formats:
   - pdf
