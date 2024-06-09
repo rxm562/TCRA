@@ -1,5 +1,5 @@
 # TCRA
-**Tropical Cyclone Risk Analysis TCRA**
+**Tropical Cyclone Risk Analysis [TCRA]**
 
 
 Overview
@@ -9,26 +9,25 @@ Overview
 
 Dependency
 ----------
-* networkx
-* dolium
-* scipy
-* matplotlib
+* warnings
 * numpy
 * pandas
-* fiona
-* ipyleaflet
-* pyproj
-* os
-
+* matplotlib
+* scipy
+* folium
 
 Version Reslease
 -----------------
-* v 0.0.1 : August 3, 2019
+* v 0.0.1 : June 8, 2024
 
 
 Authors
 -----------------
-* This tool is developed by Dr. Yue Li research group, the Department of Civil Engineering, Case Western Reserve University
+* This tool is developed by [Ram Krishna Mazumder, Ph.D.](https://rxm562.github.io/), Asset Management Consultant/Structural Engineer, Arcadis U.S. Inc.
+
+Funding Acknowledement
+----------------------
+* This tool development is partly supported by the [Coalition for Disaster Resilient Infrastructure (CDRI)](https://www.cdri.world/) fellowship 2023-24 Cohort under the Project titled "Community Disaster Resilience Assessment by Integrating Functionality of Buildings and Critical Infrastructure Systems". The development of this tool is not necessarily expressed the view of the CDRI.
 
 
 License
