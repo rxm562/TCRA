@@ -110,9 +110,23 @@ TCRA is a Python package designed to perform scenario-based tropical cyclone ris
   
   result_blg_damage.head(2)
 
+Summary Damage
+-------------------------------
+.. figure:: figures/damage.png
+   :scale: 25%
+   :alt: Logo
+
 3. Plotting Wind Speed
 ---------------------
 
 .. code-block:: console
 
   plot_scatter(result_blg_damage, 'x', 'y', 'mph', save_path='wind_speed.png')
+
+
+3. Functionality Results
+-------------------------------
+.. figure:: figures/functionality.png
+   :scale: 25%
+   :alt: Logo
+
