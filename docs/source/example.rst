@@ -1,3 +1,9 @@
+.. highlight:: shell
+
+============
+Illustrative Example
+============
+
 TCRA is a Python package designed to perform scenario-based tropical cyclone risk analysis. The software includes capability to:
 
 1. Scenario-hazard estimation: peak gust wind speed at sites
