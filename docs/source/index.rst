@@ -7,8 +7,10 @@ Welcome to TCRA's documentation!
 
    intro
    installation
+   framework
    API documentation <apidocs/tcra>
    example
+   reference
    ...
 
 Indices and tables
