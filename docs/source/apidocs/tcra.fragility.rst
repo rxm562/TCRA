@@ -7,7 +7,7 @@ Submodules
 tcra.fragility.fragility_curves module
 ----------------------------------
 
-.. automodule:: tcra.simulation.fragility_curves
+.. automodule:: tcra.fragility.fragility_curves
     :members:
     :undoc-members:
     :show-inheritance:
@@ -15,7 +15,7 @@ tcra.fragility.fragility_curves module
 tcra.fragility.fragility_curves_epn module
 ----------------------------
 
-.. automodule:: tcra.simulation.fragility_curves_epn
+.. automodule:: tcra.fragility.fragility_curves_epn
     :members:
     :undoc-members:
     :show-inheritance:
@@ -23,7 +23,7 @@ tcra.fragility.fragility_curves_epn module
 tcra.fragility.fragility_rehab module
 ------------------------------
 
-.. automodule:: tcra.simulation.fragility_rehab
+.. automodule:: tcra.fragility.fragility_rehab
     :members:
     :undoc-members:
     :show-inheritance:
