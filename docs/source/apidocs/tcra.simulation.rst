@@ -4,34 +4,34 @@ tcra.simulation package
 Submodules
 ----------
 
-tcra.simulation.DamageAnalysis module
+tcra.simulation.aamageanalysis module
 ----------------------------------
 
-.. automodule:: tcra.simulation.DamageAnalysis
+.. automodule:: tcra.simulation.aamageanalysis
     :members:
     :undoc-members:
     :show-inheritance:
 
-tcra.simulation.Hurricane module
+tcra.simulation.hurricane module
 ----------------------------
 
-.. automodule:: tcra.simulation.Hurricane
+.. automodule:: tcra.simulation.hurricane
     :members:
     :undoc-members:
     :show-inheritance:
 
-tcra.simulation.Interactive module
+tcra.simulation.interactive module
 ------------------------------
 
-.. automodule:: tcra.simulation.Interactive
+.. automodule:: tcra.simulation.interactive
     :members:
     :undoc-members:
     :show-inheritance:
 
-tcra.simulation.Plot module
+tcra.simulation.plot module
 ------------------------------
 
-.. automodule:: tcra.simulation.Plot
+.. automodule:: tcra.simulation.plot
     :members:
     :undoc-members:
     :show-inheritance:
