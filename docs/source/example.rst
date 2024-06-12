@@ -67,7 +67,7 @@ TCRA is a Python package designed to perform scenario-based tropical cyclone ris
 2. Plotting Peak Gust Wind Speed for All Buildings
 ---------------------
 
-  .. code-block:: console
+.. code-block:: console
 
   VG.plot.line(legend=None)
   plt.xlabel('Time Steps')
