@@ -9,6 +9,7 @@ Welcome to TCRA's documentation!
    installation
    framework
    API documentation <apidocs/tcra>
+   analysis
    example
    reference
    ...
