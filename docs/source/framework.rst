@@ -15,7 +15,7 @@ TCRA is a Python package designed to perform scenario-based tropical cyclone ris
 Flow Chart: Tropical Cyclone Risk Analysis Framework
 -------------------------------
 .. figure:: figures/Framework.png
-   :scale: 70%
+   :scale: 50%
    :alt: Logo
 
 **Fig 1.** Framework for Scenario-Cyclone Risk Analysis.
