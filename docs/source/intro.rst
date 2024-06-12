@@ -9,7 +9,7 @@ Tropical Cyclone Risk Analysis
    :scale: 25%
    :alt: Logo
    
-**Tropical Cyclone Risk Analysis [TCRA]** is a Python package that allows developing scenario-based earthquake damage and renewal cost estimation for buried pipeline networks. This tool gives an interactive damage scenario for distributed buried water infrastructures.
+**Tropical Cyclone Risk Analysis [TCRA]** is a Python package that allows developing scenario-based tropical cyclone risk analysis of buildings and electrical network system. This tool allows to perform hazard analysis based on historical cyclone track, damage analysis given the intensity estimated through scenario cyclone track, monte-carlo simulation for prioritizing the damaged structures for rehabilitaiton, and recovery simulation.
 
 
 Dependency
