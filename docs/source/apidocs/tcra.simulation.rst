@@ -4,10 +4,10 @@ tcra.simulation package
 Submodules
 ----------
 
-tcra.simulation.aamageanalysis module
+tcra.simulation.damageanalysis module
 ----------------------------------
 
-.. automodule:: tcra.simulation.aamageanalysis
+.. automodule:: tcra.simulation.damageanalysis
     :members:
     :undoc-members:
     :show-inheritance:
