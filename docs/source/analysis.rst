@@ -53,8 +53,8 @@ There are five steps that the user would need to take:
     defined in the INP file. Subsequently, set the simulation period
     as :math:`20s`, and use suggested time step.
 
-.. literalinclude:: ../examples/Tnet3_burst_leak.py
-    :lines: 6-12
+.. literalinclude:: ..tcra/fragility/fragility_curves.py
+    :lines: 1-12
 
 3.  Define background leak location, JUNCTION-22,
     and specify the emitter coefficient.
