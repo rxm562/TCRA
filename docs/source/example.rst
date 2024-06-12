@@ -64,7 +64,7 @@ TCRA is a Python package designed to perform scenario-based tropical cyclone ris
   df_bdg_wind.drop(['ind'], axis=1, inplace=True)
 
 
-2. Plotting Peak Gust Wind Speed for All Buildings
+3. Plotting Peak Gust Wind Speed for All Buildings
 ---------------------
 
 .. code-block:: console
@@ -75,7 +75,7 @@ TCRA is a Python package designed to perform scenario-based tropical cyclone ris
   plt.show()
   # plt.savefig('Cyclone_Hazard.png', dpi=300)
 
-3. Damage Simulation
+4. Damage Simulation
 ---------------------
 
 .. code-block:: console
@@ -110,13 +110,13 @@ TCRA is a Python package designed to perform scenario-based tropical cyclone ris
   
   result_blg_damage.head(2)
 
-Summary Damage
+5. Summary Damage
 -------------------------------
 .. figure:: figures/damage.png
    :scale: 25%
    :alt: Logo
 
-3. Plotting Wind Speed
+6. Plotting Wind Speed
 ---------------------
 
 .. code-block:: console
@@ -124,7 +124,7 @@ Summary Damage
   plot_scatter(result_blg_damage, 'x', 'y', 'mph', save_path='wind_speed.png')
 
 
-3. Functionality Results
+7. Functionality Results
 -------------------------------
 .. figure:: figures/functionality.png
    :scale: 25%
