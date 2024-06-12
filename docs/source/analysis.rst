@@ -2,13 +2,6 @@
 Analysis
 ====================
 
-Example 1
------------------------------
-
-This example shows how to simulate the closure of a
-TSNet package:
-
-
 
 Summary Damage
 -------------------------------
@@ -16,40 +9,40 @@ Summary Damage
    :scale: 25%
    :alt: Logo
 
-.. code-block:: console
+===============
+Getting Started
+===============
 
-   import folium
-   import matplotlib.pyplot as plt
-   from matplotlib.colors import ListedColormap
-   
-   def plot_scatter(plot_data, x_col, y_col, color_col, figsize=(4, 3), color_map=None, s=0.5, xlabel='longitude', ylabel='latitude', colorbar_label='pf', save_path=None):
-       """
-       Plots a scatter plot from the given DataFrame with specified x, y, and color columns.
-   
-       Parameters:
-       plot_data (pd.DataFrame): DataFrame containing the data
-       x_col (str): Column name for x coordinates
-       y_col (str): Column name for y coordinates
-       color_col (str): Column name for coloring the scatter points
-       figsize (tuple): Size of the figure (width, height)
-       color_map: Colormap to use for the scatter plot (default is a predefined colormap)
-       s (float): Marker size
-       xlabel (str): Label for the x-axis
-       ylabel (str): Label for the y-axis
-       colorbar_label (str): Label for the color bar
-       save_path (str): Path to save the figure (default is None, meaning not saving the figure)
-       """
-       if color_map is None:
-           color_map = ListedColormap(['blue', 'green', 'yellow', 'orange', 'red'])
-   
-       fig = plt.figure(figsize=figsize)
-       scatter = plt.scatter(plot_data[x_col], plot_data[y_col], c=plot_data[color_col], cmap=color_map, s=s)
-       cbar = plt.colorbar(scatter)
-       cbar.set_label(colorbar_label)
-       plt.xlabel(xlabel)
-       plt.ylabel(ylabel)
-       if save_path:
-           plt.savefig(save_path,bbox_inches='tight', dpi=300)
-       plt.show()
+To use tsnet in a project, open a Python console and import the package::
+
+    import tsnet
+
+Simple example
+---------------
+
+A simple example, Tnet1_valve_closure.py is included in the examples folder.
+This example demonstrates how to:
+
+* Import tsnet
+
+* Generate a transient model
+
+* Set wave speed
+
+* Set time step and simulation period
+
+* Perform initial condition calculation
+
+* Define valve closure rule
+
+* Run transient simulation and save results to .obj file
+
+* Plot simulation results
+
+.. literalinclude:: ../examples/Tnet1_valve_closure.py
+    :lines: 2-42
 
 
+Three additional EPANET INP files and example files are also included
+in the TSNet examples repository in the examples folder.
+Example networks range from a simple 8-node network to a 126-node network.
