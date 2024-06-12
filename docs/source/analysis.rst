@@ -19,7 +19,7 @@ TSNet package:
 1.  Import TSNet package, read the EPANET INP file,
     and create transient model object.
 
-.. literalinclude:: ../tcra/simulation/damageanalysis.py
+.. literalinclude:: ../simulation/damageanalysis.py
 
 ----
 
@@ -41,7 +41,7 @@ There are five steps that the user would need to take:
 1.  Import TSNet package, read the EPANET INP file,
     and create transient model object.
 
-.. literalinclude:: ../examples/Tnet3_burst_leak.py
+.. literalinclude:: ../simulation/fragility_rehab.py
     :lines: 1-4
 
 2.  The user can import custom wave speeds for each pipe.
