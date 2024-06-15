@@ -33,6 +33,7 @@ Dependency
 Version Reslease
 -----------------
 * v 0.0.1 : June 8, 2024
+The current version is a ongoing research project, which is still a pre-release.
 
 Authors
 -----------------
