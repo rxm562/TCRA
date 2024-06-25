@@ -6,6 +6,30 @@ simulation for the given .inp file.
 """
 
 def rehab_fragility_curves(rr):
+
+    """Define valve operation curve (percentage open v.s. time)
+
+    Parameters
+    ----------
+    dt : float
+        Time step
+    tf : float
+        Simulation Time
+    valve_op : list
+        Contains parameters to define valve operation rule
+        valve_op = [tc,ts,se,m]
+        tc : the duration takes to close the valve [s]
+        ts : closure start time [s]
+        se : final open percentage [s]
+        m  : closure constant [unitless]
+
+    Returns
+    -------
+    s : list
+        valve operation curve
+    """
+
+    
     return {
         'MSF1': {
             'Slight': {'mu': 124.474391, 'sigma': 0.1259},
