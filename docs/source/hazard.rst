@@ -37,3 +37,40 @@ The following code can be used to compute peak ground acceleration, peak ground 
 
 .. literalinclude:: ../examples/Tnet1_valve_closure.py
    :lines: 10-17
+
+
+
+This module requires cyclone input track.  
+
+.. table:: cyclone input track.
+
+   ==============================  ===================================================================================================================
+   Column Title                    Description
+   ==============================  ===================================================================================================================
+   sl                              Row number
+   Time                            Time of cyclone (time step - i)
+   Lat                             Latitute of cyclone eye
+   Long                            Longitude of cyclone eye
+   CP                              Central Pressure Difference
+   ==============================  ===================================================================================================================
+
+.. table:: building input data.
+
+   ==============================  ===================================================================================================================
+   Column Title                    Description
+   ==============================  ===================================================================================================================
+   id                              Building unique identifier
+   Lat                             Latitute of building
+   Long                            Longitude of building
+   Floor                           No of storey
+   Area                            Area of the building
+   type                            Structural archetype
+   Occupancy                       Building use
+
+   ==============================  ===================================================================================================================
+
+Run hazard module to estimate the cyclone parameters and intensity at buildings::
+
+    hurricane_parameters = HurricaneParameters(track_df)
+    df_track = hurricane_parameters.estimate_parameters()
+    df_bdg_wind, VG = hurricane_parameters.calculate_wind_speeds(df_track, blg)
