@@ -14,6 +14,7 @@ Welcome to TCRA's documentation!
    lossestimation
    recovery
    scenario
+   interactiveplot
    API documentation <apidocs/tcra>
    analysis
    example
