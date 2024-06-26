@@ -29,6 +29,15 @@ tcra.fragility.fragility_rehab module
     :show-inheritance:
 
 
+tcra.fragility.montecarlo module
+------------------------------
+
+.. automodule:: tcra.fragility.montecarlo
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
 Module contents
 ---------------
 
