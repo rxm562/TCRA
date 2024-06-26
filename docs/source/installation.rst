@@ -22,13 +22,12 @@ To install TCRA, run this command in your terminal:
 Importing TCRA
 ---------------------
 
-Once installed, you can import TCRA into your Python scripts or Jupyter notebooks. Here's a simple example:
+Once installed, you can import TCRA into your Python scripts or Jupyter notebooks. Here's a simple example. This will allow user to use the tcra functions and classes in your code:
 
 .. code-block:: python
 
    import tcra
 
-   # Now you can use the tcra functions and classes in your code
 
 
 This is the preferred method to install tcra, as it will always install the
@@ -51,15 +50,6 @@ You can either clone the public repository:
 .. code-block:: console
 
     $ git clone git://github.com/rxm562/TCRA
-
-Or download the `tarball`_:
-
-
-Once you have a copy of the source, you can install it with:
-
-.. code-block:: console
-
-    $ python setup.py install
 
 
 .. _Github repo: https://github.com/rxm562/TCRA
@@ -91,5 +81,5 @@ The following Python packages are required::
 
 5.  Folium : Folium builds on the data wrangling strengths of the Python ecosystem and the mapping 
     strengths of the Leaflet.js library.
-    https://python-visualization.github.io/folium/latest/#
+    https://python-visualization.github.io/folium/latest/
 
