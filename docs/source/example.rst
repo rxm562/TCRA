@@ -137,7 +137,7 @@ Damage Simulation
   plot_scatter(result_blg_damage, 'x', 'y', 'dmg', save_path='blg_dmg_states_unrehab.png')
 
 .. figure:: figures/blg_dmg_states_unrehab.png
-   :scale: 50%
+   :scale: 40%
    :alt: Log
 
 8. Monte-Carlo Simulation
