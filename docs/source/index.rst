@@ -1,25 +1,21 @@
-Welcome to TCRA's documentation!
-======================================
+Transient Simulation in water Networks (TSNet)
+==============================================
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+.. figure:: figures/Monte_Carlo_Recovery_Curve.png
+   :width: 600
+   :alt: highlight
 
-   intro
-   installation
-   framework
-   hazard
-   vulnerability
-   montecarlosimulation
-   lossestimation
-   recovery
-   scenario
-   interactiveplot
-   API documentation <apidocs/tcra>
-   analysis
-   example
-   reference
-   ...
+
+TSNet is a Python package designed to perform transient simulation in water
+distribution networks. The software includes capability to:
+
+* Create transient models based on EPANET INP files
+* Operate valves and pumps
+* Add disruptive events including pipe bursts and leaks
+* Model open and closed surge tanks
+* Choose between steady,quasi-steady, and unsteady friction models
+* Perform transient simulation using Method of characteristics (MOC) techniques
+* Visualize results
 
 Indices and tables
 ==================
