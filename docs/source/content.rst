@@ -6,6 +6,7 @@ Welcome to TCRA's documentation!
    :caption: content:
 
    content
+   index
    intro
    installation
    framework
