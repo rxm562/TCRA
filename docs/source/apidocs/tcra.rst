@@ -6,10 +6,13 @@ Subpackages
 
 .. toctree::
 
-    tcra.simulation
-    tcra.fragility
-    tcra.analysis
     tcra.hazard
+    tcra.vulnerability
+    tcra.fragility
+    tcra.simulation
+    tcra.loss
+    tcra.analysis
+    tcra.rehab
 
 Module contents
 ---------------
