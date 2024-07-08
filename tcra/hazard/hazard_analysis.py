@@ -5,30 +5,17 @@ simulation for the given .inp file.
 
 """
 
-class CycloneParameters:
-    """ This is Cyclone Parameters Analysis class. This class estimates parameters for cyclone track.
-    This module also estiamtes wind speed at building sites for scenario cyclone track.
+class HurricaneParameters:
+    """ This is Damage Probability Analysis class. This class estimates probabilities of various damage states.
     Parameters
     -------------------
-    inp_file_name: cyclone track characteristics, building invetory.
+    inp_file_name: building invetory, failure state keys that defines failure.
     """
     
     def __init__(self, data):
         self.data = data
 
     def estimate_parameters(self):
-    """" Estimates cyclone parameters, including Δp, Rmax, B, ρ, Ω.
-    Parameters
-    ----------
-    Lat : Latitude
-    Long : Longitude
-    CP : Central Pressure (millibar)
-    Δp: Central Pressure Difference (millibar)
-    B : Holland Parameter
-    ρ : Air density
-    Ω : Earth's angular velocity (rad/s)      
-    """
-      
         # Initialize lists for parameters
         self.Lat = []          # Latitude
         self.Long = []         # Longitude
