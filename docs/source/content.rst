@@ -3,10 +3,8 @@ Welcome to TCRA's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: content:
+   :caption: Contents:
 
-   content
-   index
    intro
    installation
    framework
@@ -21,7 +19,6 @@ Welcome to TCRA's documentation!
    analysis
    example
    reference
-   ...
 
 Indices and tables
 ==================
