@@ -8,7 +8,7 @@ class HurricaneParameters:
     """ This is Damage Probability Analysis class. This class estimates probabilities of various damage states.
     Parameters
     -------------------
-    
+    """"
     def __init__(self, data):
         self.data = data
 
