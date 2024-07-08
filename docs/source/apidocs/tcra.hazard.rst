@@ -4,10 +4,10 @@ tcra.hazard package
 Submodules
 ----------
 
-tcra.hazard.dan module
+tcra.hazard.hazard_analysis module
 ----------------------------------
 
-.. automodule:: tcra.analysis.dan
+.. automodule:: tcra.hazard.hazard_analysis
     :members:
     :undoc-members:
     :show-inheritance:
@@ -16,7 +16,7 @@ tcra.hazard.dan module
 Module contents
 ---------------
 
-.. automodule:: tcra.analysis
+.. automodule:: tcra.hazard
     :members:
     :undoc-members:
     :show-inheritance:
