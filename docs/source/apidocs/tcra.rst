@@ -9,6 +9,7 @@ Subpackages
     tcra.simulation
     tcra.fragility
     tcra.analysis
+    tcra.hazard
 
 Module contents
 ---------------
