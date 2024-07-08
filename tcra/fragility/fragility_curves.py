@@ -6,6 +6,11 @@ simulation for the given .inp file.
 """
 
 class DamageProbabilityCalculator:
+    """ This is Damage Probability Analysis class. This class estimates probabilities of various damage states.
+    Parameters
+    -------------------
+    inp_file_name: building invetory, failure state keys that defines failure.
+    """
     def __init__(self, failure_state_keys):
         self.failure_state_keys = failure_state_keys
 
