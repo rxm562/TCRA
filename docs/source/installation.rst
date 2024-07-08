@@ -59,7 +59,7 @@ You can either clone the public repository:
 Dependencies
 ------------
 
-Requirements for TSNet include Python (3.5, 3.6, or 3.7) along with several Python packages.
+Requirements for TCRA include Python (3.5, 3.6, or 3.7) along with other Python packages as listed below.
 
 The following Python packages are required::
 
