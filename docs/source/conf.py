@@ -87,7 +87,8 @@ math_eqref_format = "Eq.{number}"
 
 # autosummary
 autosummary_generate = glob.glob("apidocs/*.rst")
-# autosummary_generate_overwrite = True
+autosummary_generate = True
+autosummary_generate_overwrite = True
 # The suffix(es) of source filenames.
 source_suffix = '.rst'
 
