@@ -1,7 +1,7 @@
-tsnet
+tcra
 =====
 
 .. toctree::
    :maxdepth: 4
 
-   tsnet
+   tcra
