@@ -83,7 +83,7 @@ math_numfig = True
 math_eqref_format = "Eq.{number}"
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+# templates_path = ['_templates']
 
 # autosummary
 autosummary_generate = glob.glob("apidocs/*.rst")
