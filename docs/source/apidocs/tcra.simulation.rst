@@ -12,30 +12,6 @@ tcra.simulation.damageanalysis module
     :undoc-members:
     :show-inheritance:
 
-tcra.simulation.hurricane module
-----------------------------
-
-.. automodule:: tcra.simulation.hurricane
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-tcra.simulation.interactive module
-------------------------------
-
-.. automodule:: tcra.simulation.interactive
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-tcra.simulation.plot module
-------------------------------
-
-.. automodule:: tcra.simulation.plot
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 
 Module contents
 ---------------
@@ -44,3 +20,4 @@ Module contents
     :members:
     :undoc-members:
     :show-inheritance:
+
