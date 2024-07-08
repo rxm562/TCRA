@@ -8,6 +8,7 @@ Subpackages
 
     tcra.simulation
     tcra.fragility
+    tcra.analysis
 
 Module contents
 ---------------
