@@ -92,7 +92,7 @@ autosummary_generate_overwrite = True
 source_suffix = '.rst'
 
 # The master toctree document.
-master_doc = 'index'
+master_doc = 'content'
 
 # List of patterns, relative to source directory, that match files and directories to ignore.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
