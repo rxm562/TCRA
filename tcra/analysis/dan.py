@@ -1,53 +1,77 @@
 """
-The tsnet.network.geometry read in the geometry defined by EPANet
-.inp file, and assign additional parameters needed in transient
-simulation later in tsnet.
+The tcra fragility_rehab module contains function to perform
+the workflow of read, discretize, initial, and transient
+simulation for the given .inp file.
 
 """
 
+class DamageProbabilityCalculator:
+    """ This is Damage Probability Analysis class. This class estimates probabilities of various damage states.
+    Parameters
+    -------------------
+    inp_file_name: building invetory, failure state keys that defines failure.
+    """
+    def __init__(self, failure_state_keys):
+        self.failure_state_keys = failure_state_keys
 
-import numpy as np
-import pandas as pd
-from scipy.stats import lognorm
+    def calc_probability_failure_value(self, ds_sample):
+        """Calculate the probability of failure given a sample of damage states.
+        Parameters
+        ----------
+        ki : float or int or list, optional
+            If given as float or int, set the value as wavespeed
+            for all pipe; If given as list set the corresponding
+            value to each pipe, by default 1200.
+        dt : str or list, optional
+            The list of pipe to define wavespeed,
+            by default all pipe in the network.
+        """
+        count = 0
+        func = {}
+        for sample, state in ds_sample.items():
+            if state in self.failure_state_keys:
+                func[sample] = "0"
+                count += 1
+            else:
+                func[sample] = "1"
+        if len(ds_sample):
+            return func, count / len(ds_sample)
+        else:
+            return func, np.nan
 
-# Assuming fragility_curves is imported from a separate file
-# from fragility_curves import fragility_curves
-
-class FragilityAnalysis:
-    def __init__(self, fragility_curves):
-        self.fragility_curves = fragility_curves
-
-    def generate_fragility_curve(self, mu, sigma, intensity):
-        """Generate the fragility curve using log-normal distribution."""
-        return lognorm.cdf(intensity, s=sigma, scale=mu)
-
-    def estimate_damage(self, building_data):
-        """Estimate damage probabilities for all buildings."""
-        results = []
-        for _, row in building_data.iterrows():
-            building_type = row['type']
-            intensity = row['mph']
-            
-            fragility_curves_building = self.fragility_curves[building_type]
-            building_probabilities = {}
-            for damage_state, fragility_params in fragility_curves_building.items():
-                fragility_curve = self.generate_fragility_curve(fragility_params['mu'], fragility_params['sigma'], intensity)
-                building_probabilities[damage_state] = fragility_curve
-            building_probabilities['id'] = row['id']
-            building_probabilities['x'] = row['x']
-            building_probabilities['y'] = row['y']
-            building_probabilities['mph'] = row['mph']
-            building_probabilities['type'] = row['type']
-            results.append(building_probabilities)
-        return pd.DataFrame(results)
-
-    def sample_damage_state(self, Pr, DStates):
-        self.DStates = DStates
-        """Sample the damage state based on probabilities."""
-        p = pd.Series(data=np.random.uniform(size=Pr.shape[0]), index=Pr.index)
-        damage_state = pd.Series(data=[None] * Pr.shape[0], index=Pr.index)
-
-        for DS_name in DStates:
-            damage_state[p < Pr[DS_name]] = DS_name
-
-        return damage_state
+    def sample_damage_interval(self, bldg_result, damage_interval_keys, num_samples, seed):
+        """Sample damage intervals for the given building results.
+                Parameters
+        ----------
+        ki : float or int or list, optional
+            If given as float or int, set the value as wavespeed
+            for all pipe; If given as list set the corresponding
+            value to each pipe, by default 1200.
+        dt : str or list, optional
+            The list of pipe to define wavespeed,
+            by default all pipe in the network.
+        """
+        ki = []
+        dt = []
+        for i in range(len(bldg_result)):
+            ds = {}
+            dmg_row = bldg_result.iloc[i:i+1]
+            random_generator = np.random.RandomState(seed)
+            for j in range(num_samples):
+                # each sample should have a unique seed
+                rnd_num = random_generator.uniform(0, 1)
+                prob_val = 0
+                flag = True
+                for ds_name in damage_interval_keys:
+                    if rnd_num < prob_val + dmg_row[ds_name].values[0]:
+                        ds[f'sample_{j}'] = ds_name
+                        flag = False
+                        break
+                    else:
+                        prob_val += dmg_row[ds_name].values[0]
+                if flag:
+                    print("Cannot determine MC damage state!")
+                    break
+            dt.append(self.calc_probability_failure_value(ds)[1])
+            ki.append(dmg_row['id'].iloc[0])
+        return dt, ki
