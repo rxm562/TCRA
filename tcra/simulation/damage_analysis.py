@@ -76,7 +76,14 @@ class DamageProbabilityCalculator:
             ki.append(dmg_row['id'].iloc[0])
         return dt, ki
 
+
 class HurricaneParameters:
+    """ This is Damage Probability Analysis class. This class estimates probabilities of various damage states.
+    Parameters
+    -------------------
+    inp_file_name: building invetory, failure state keys that defines failure.
+    """
+    
     def __init__(self, data):
         self.data = data
 
