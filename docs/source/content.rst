@@ -5,7 +5,7 @@ Welcome to TCRA's documentation!
    :maxdepth: 2
    :caption: content:
 
-   index
+   content
    intro
    installation
    framework
