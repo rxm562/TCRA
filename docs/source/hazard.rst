@@ -58,3 +58,5 @@ Following is an example of running hazard module to estimate the cyclone paramet
     cyclone_parameters = CycloneParameters(track_df)
     df_track = cyclone_parameters.estimate_parameters()
     df_bdg_wind, VG = cyclone_parameters.calculate_wind_speeds(df_track, blg)
+
+This module provides wind speed for buildings/structures. Adds wind speed 'mph/kmh' to building/structure inventory, which is used for vulnerability analysis.
