@@ -9,7 +9,7 @@ Tropical Cyclone Risk Analysis
    :scale: 25%
    :alt: Logo
    
-** Tropical Cyclone Risk Analysis [TCRA]** is a Python package that allows for the development of scenario-based tropical cyclone risk analysis of buildings and Electrical Power Network (EPN). This tool performs scenario-hazard analysis based on historical or simulated cyclone tracks, fragility-based damage analysis, damage ratio analysis, loss estimation, recovery simulation of damaged structures, and social impact assessments on the community. It also enables decision-makers to make rehabilitation decisions and perform rehabilitation scenario analysis.
+**Tropical Cyclone Risk Analysis [TCRA]** is a Python package that allows for the development of scenario-based tropical cyclone risk analysis of buildings and Electrical Power Network (EPN). This tool performs scenario-hazard analysis based on historical or simulated cyclone tracks, fragility-based damage analysis, damage ratio analysis, loss estimation, recovery simulation of damaged structures, and social impact assessments on the community. It also enables decision-makers to make rehabilitation decisions and perform rehabilitation scenario analysis.
 
 Introduction to TCRA
 -------------------------------
@@ -36,12 +36,12 @@ The current version is a ongoing research project, which is still a pre-release.
 
 Authors
 -----------------
-* This tool is developed by [Ram Krishna Mazumder, Ph.D., P.E.] (https://rxm562.github.io/), Asset Management Consultant/Structural Engineer, Arcadis U.S. Inc.
+* This tool is developed by **Ram Krishna Mazumder, Ph.D., P.E.** https://rxm562.github.io/, Asset Management Consultant/Structural Engineer, Arcadis U.S. Inc.
 
 
 Funding Statement
 ----------------------
-* This tool development is partly supported by the [Coalition for Disaster Resilient Infrastructure (CDRI)] (https://www.cdri.world/) fellowship 2023-24 Cohort under the Project titled "Community Disaster Resilience Assessment by Integrating Functionality of Buildings and Critical Infrastructure Systems". The development of this tool is not necessarily expressed the view of the CDRI.
+This tool development is partly supported by the **Coalition for Disaster Resilient Infrastructure (CDRI)** https://www.cdri.world/ fellowship 2023-24 Cohort under the Project titled "Community Disaster Resilience Assessment by Integrating Functionality of Buildings and Critical Infrastructure Systems". The development of this tool is not necessarily expressed the view of the CDRI.
 
 .. figure:: figures/cdri-logo.png
    :scale: 100%
