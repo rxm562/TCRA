@@ -1,11 +1,10 @@
 """
 The tcra fragility_rehab module contains function to perform
-the workflow of read, discretize, initial, and transient
-simulation for the given .inp file.
+physical damage using existing fragility curves for building archetypes.
 
 """
-
-class HurricaneParameters:
+    
+class CycloneParameters:
     """ This is Damage Probability Analysis class. This class estimates probabilities of various damage states.
     Parameters
     -------------------
@@ -62,15 +61,15 @@ class HurricaneParameters:
     def calculate_wind_speeds(self, df_track, blg):
         Vmph = []
 
-        # Calculate gradient wind speed for each hurricane data point
-        for _, hurricane_row in df_track.iterrows():
-            Lat_HE = np.radians(hurricane_row['Lat'])
-            Long_HE = np.radians(hurricane_row['Long'])
-            ρ = hurricane_row['ρ']
-            B = hurricane_row['B']
-            Rmax = hurricane_row['Rmax'] * 1000
-            CP = hurricane_row['CP']
-            Δp = hurricane_row['Δp'] * 100
+        # Calculate gradient wind speed for each cyclone data point
+        for _, cyclone_row in df_track.iterrows():
+            Lat_HE = np.radians(cyclone_row['Lat'])
+            Long_HE = np.radians(cyclone_row['Long'])
+            ρ = cyclone_row['ρ']
+            B = cyclone_row['B']
+            Rmax = cyclone_row['Rmax'] * 1000
+            CP = cyclone_row['CP']
+            Δp = cyclone_row['Δp'] * 100
 
             Vmph1 = []
             Vmph.append(Vmph1)
@@ -86,7 +85,7 @@ class HurricaneParameters:
 
                 a = np.sin(delLat / 2)**2 + np.cos(Lat_HE) * np.cos(Lat_rad) * np.sin(delLong / 2)**2
                 rr = 2 * 6373 * np.arcsin(np.sqrt(a))
-                r = rr * 1000  # Distance from hurricane eye to building
+                r = rr * 1000  # Distance from cyclone eye to building
 
                 f = 2 * 0.000073 * np.sin(Lat_rad)  # Coriolis parameter
                 Vg = np.sqrt((((Rmax / r)**B) * ((B * Δp * np.exp(-(Rmax / r)**B)) / ρ)) + ((r**2) * (f**2) * 0.25)) - (r * f / 2)
@@ -98,7 +97,7 @@ class HurricaneParameters:
         VG = VG1 * 1.287 * 1.61  # Convert gradient wind speed to gust wind speed
         Vg=VG1.T
 
-        V3s = Vg.max(axis=1) * 0.86 * 1.287  # Use coefficient 0.8-0.86 depending on hurricane intensity
+        V3s = Vg.max(axis=1) * 0.86 * 1.287  # Use coefficient 0.8-0.86 depending on cyclone intensity
         V3 = list(blg.id)
         vv = list(V3s.values)
         pf = {'ind': V3, 'mph': vv}
