@@ -12,6 +12,13 @@ tcra.damageprob.DamageProbability module
     :undoc-members:
     :show-inheritance:
 
+tcra.damageprob.probplot module
+----------------------------------
+
+.. automodule:: tcra.damageprob.probplot
+    :members:
+    :undoc-members:
+    :show-inheritance:
 
 Module contents
 ---------------
