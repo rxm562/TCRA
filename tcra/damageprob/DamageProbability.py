@@ -1,19 +1,29 @@
-import folium
-import matplotlib.patches as mpatches
-from scipy.spatial import distance
-import collections
-import concurrent.futures
-from past.builtins import xrange
-from typing import List
+"""
+The tcra DamageProbabilityCalculator class estimates probabilites of damage states.
 
-
+"""
 
 class DamageProbabilityCalculator:
+    """ This is Damage Probability Analysis class. This class estimates probabilities of various damage states.
+    Parameters
+    -------------------
+    inp_file_name: building invetory, failure state keys that defines failure.
+    """
     def __init__(self, failure_state_keys):
         self.failure_state_keys = failure_state_keys
 
     def calc_probability_failure_value(self, ds_sample):
-        """Calculate the probability of failure given a sample of damage states."""
+        """Calculate the probability of failure given a sample of damage states.
+        Parameters
+        ----------
+        ki : float or int or list, optional
+            If given as float or int, set the value as wavespeed
+            for all pipe; If given as list set the corresponding
+            value to each pipe, by default 1200.
+        dt : str or list, optional
+            The list of pipe to define wavespeed,
+            by default all pipe in the network.
+        """
         count = 0
         func = {}
         for sample, state in ds_sample.items():
@@ -28,7 +38,17 @@ class DamageProbabilityCalculator:
             return func, np.nan
 
     def sample_damage_interval(self, bldg_result, damage_interval_keys, num_samples, seed):
-        """Sample damage intervals for the given building results."""
+        """Sample damage intervals for the given building results.
+                Parameters
+        ----------
+        ki : float or int or list, optional
+            If given as float or int, set the value as wavespeed
+            for all pipe; If given as list set the corresponding
+            value to each pipe, by default 1200.
+        dt : str or list, optional
+            The list of pipe to define wavespeed,
+            by default all pipe in the network.
+        """
         ki = []
         dt = []
         for i in range(len(bldg_result)):
