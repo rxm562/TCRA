@@ -8,6 +8,7 @@ Subpackages
 
     tcra.hazard
     tcra.vulnerability
+    tcra.damageprob
     tcra.fragility
     tcra.simulation
     tcra.loss
