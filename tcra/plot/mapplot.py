@@ -34,7 +34,8 @@ def plot_scatter(plot_data, x_col, y_col, color_col, figsize=(4, 3), color_map=N
     plt.show()
 
 def plot_interactive_map(node, node_attribute=None, node_size=5, node_cmap_bins='cut', node_cmap=None, link_cmap=None):
-    """ this function allows user to plot results interactively on OpenStreetMap.
+    """ 
+    this function allows user to plot results interactively on OpenStreetMap.
     -------------------
     inp_file_name: building invetory with result.
     """
