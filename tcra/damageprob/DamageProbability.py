@@ -38,8 +38,8 @@ class DamageProbabilityCalculator:
             return func, np.nan
 
     def sample_damage_interval(self, bldg_result, damage_interval_keys, num_samples, seed):
-        """Sample damage intervals for the given building results.
-                Parameters
+        """ Sample damage intervals for the given building results.
+        Parameters
         ----------
         ki : float or int or list, optional
             If given as float or int, set the value as wavespeed
