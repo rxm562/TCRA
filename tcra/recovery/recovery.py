@@ -3,7 +3,8 @@ These tcra rep, rep_EPN, recovery_monte_carlo_simulation functions calculate est
 
 """
 def rep(data):
-    """ this function estimates repair time (days) given damage level of buildings. params need to adjusted for local building types.
+    """ 
+    this function estimates repair time (days) given damage level of buildings. params need to adjusted for local building types.
     0: none, 1: slight, 2: moderate, 3: extensive, 4: complete
     -------------------
     inp_file_name: building invetory, damage states.
