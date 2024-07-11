@@ -1,6 +1,7 @@
 # plotting lognormal distribution of pf
 def plot_lognormal_distribution(result_bldg):
-    """ this function uses the pf estimated using DamageProbabilityCalculator to plot pdf and cdf of pf of buildings.
+    """ 
+    this function uses the pf estimated using DamageProbabilityCalculator to plot pdf and cdf of pf of buildings.
     -------------------
     inp_file_name: building invetory, probability of failures.
     """
