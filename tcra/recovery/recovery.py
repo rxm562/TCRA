@@ -6,8 +6,11 @@ def rep(data):
     """ 
     this function estimates repair time (days) given damage level of buildings. params need to adjusted for local building types.
     0: none, 1: slight, 2: moderate, 3: extensive, 4: complete
-    -------------------
-    inp_file_name: building invetory, damage states.
+    
+    Parameters
+    ----------
+    inp_file_name: 
+        building invetory, damage states.
     """
     params = {
         'RES1': {4: 720, 3: 360, 2: 120, 1: 5, 0: 0},
@@ -52,8 +55,10 @@ def rep(data):
 def recovery_monte_carlo_simulation(data, num_simulations):
     """ 
     this function simulate Monte Carlo process of recovery of buildings given damage level.
-    -------------------
-    inp_file_name: building invetory, damage states, num_simulations: number of simulaitons.
+    Parameters
+    ----------
+    inp_file_name: 
+        building invetory, damage states, num_simulations: number of simulaitons.
     """
     all_simulations = []
 
@@ -81,8 +86,10 @@ def recovery_monte_carlo_simulation(data, num_simulations):
 def rep_EPN(data):
     """ this function estimates repair time (days) for damage electrical poles. parameters need to be adjusted as required.
     0: non failure, 1: failure
-    -------------------
-    inp_file_name: epn invetory, damage states.
+    Parameters
+    ----------
+    inp_file_name: 
+        epn invetory, damage states.
     """
     params = {
         1: 10,
