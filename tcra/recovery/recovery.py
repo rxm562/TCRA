@@ -50,7 +50,8 @@ def rep(data):
     return recovery
 
 def recovery_monte_carlo_simulation(data, num_simulations):
-    """ this function simulate Monte Carlo process of recovery of buildings given damage level.
+    """ 
+    this function simulate Monte Carlo process of recovery of buildings given damage level.
     -------------------
     inp_file_name: building invetory, damage states, num_simulations: number of simulaitons.
     """
