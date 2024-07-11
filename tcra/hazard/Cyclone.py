@@ -6,9 +6,11 @@ physical damage using existing fragility curves for building archetypes.
     
 class CycloneParameters:
     """ This is Damage Probability Analysis class. This class estimates probabilities of various damage states.
+    
     Parameters
     -------------------
-    inp_file_name: building invetory, failure state keys that defines failure.
+    inp_file_name: 
+        building invetory, failure state keys that defines failure.
     """
     
     def __init__(self, data):
