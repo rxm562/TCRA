@@ -7,18 +7,31 @@ def plot_scatter(plot_data, x_col, y_col, color_col, figsize=(4, 3), color_map=N
     """
     Plots a scatter plot from the given DataFrame with specified x, y, and color columns.
 
-    Parameters:
-    plot_data (pd.DataFrame): DataFrame containing the data
-    x_col (str): Column name for x coordinates
-    y_col (str): Column name for y coordinates
-    color_col (str): Column name for coloring the scatter points
-    figsize (tuple): Size of the figure (width, height)
-    color_map: Colormap to use for the scatter plot (default is a predefined colormap)
-    s (float): Marker size
-    xlabel (str): Label for the x-axis
-    ylabel (str): Label for the y-axis
-    colorbar_label (str): Label for the color bar
-    save_path (str): Path to save the figure (default is None, meaning not saving the figure)
+    Parameters
+    ----------
+
+    plot_data (pd.DataFrame): 
+        DataFrame containing the data
+    x_col (str): 
+        Column name for x coordinates
+    y_col (str): 
+        Column name for y coordinates
+    color_col (str): 
+        Column name for coloring the scatter points
+    figsize (tuple): 
+        Size of the figure (width, height)
+    color_map: 
+        Colormap to use for the scatter plot (default is a predefined colormap)
+    s (float): 
+        Marker size
+    xlabel (str): 
+        Label for the x-axis
+    ylabel (str):
+        Label for the y-axis
+    colorbar_label (str):
+        Label for the color bar
+    save_path (str): 
+        Path to save the figure (default is None, meaning not saving the figure)
     """
     if color_map is None:
         color_map = ListedColormap(['blue', 'green', 'yellow', 'orange', 'red'])
@@ -36,8 +49,12 @@ def plot_scatter(plot_data, x_col, y_col, color_col, figsize=(4, 3), color_map=N
 def plot_interactive_map(node, node_attribute=None, node_size=5, node_cmap_bins='cut', node_cmap=None, link_cmap=None):
     """ 
     this function allows user to plot results interactively on OpenStreetMap.
-    -------------------
-    inp_file_name: building invetory with result.
+    
+    Parameters
+    ----------
+    inp_file_name: 
+    node:
+        building invetory with result.
     """
     if node_cmap is None:
         node_cmap = ['cornflowerblue', 'forestgreen', 'gold', 'firebrick']
