@@ -28,8 +28,10 @@ def map_cost(data):
     """ this function estimates replacement cost by archetype using unit replacement cost per unit area. 
     cost_dict is required to be updated based on the local construction cost.
     
-    -------------------
-    inp_file_name: unit replacement cost, building footprint area, no. of story/floor.
+    Parameters
+    ----------
+    inp_file_name: 
+        unit replacement cost, building footprint area, no. of story/floor.
     """
     
     costs = []
