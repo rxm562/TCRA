@@ -9,10 +9,9 @@ Subpackages
     tcra.hazard
     tcra.vulnerability
     tcra.damageprob
-    tcra.simulation
     tcra.loss
-    tcra.analysis
-    tcra.rehab
+    tcra.recovery
+    tcra.plot
 
 Module contents
 ---------------
