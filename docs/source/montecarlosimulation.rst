@@ -44,9 +44,12 @@ Fitting Failure Probabilities to Lognormal Distribution::
 
 PDF and CDF of Failure Probabilites::
 
-  # Prepare data
+  # Plot probability distribution of probability of failures
   plot_lognormal_distribution(result_bldg)
 
 .. figure:: figures/mcs.png
    :scale: 40%
    :alt: Logo
+
+**Fig 3.** Probability of Failure and Probability Density Function and Cumulative Distribution Function.
+ .
