@@ -16,7 +16,6 @@ Welcome to TCRA's documentation!
    scenario
    interactiveplot
    API documentation <apidocs/tcra>
-   analysis
    example
    reference
 
