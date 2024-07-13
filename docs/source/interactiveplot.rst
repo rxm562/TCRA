@@ -10,8 +10,6 @@ function :func:`plot_interactive_map`.
 This function produces an interactive map using Folium, an open-source Python library for generating Leaflet maps. More information on Folium can be found at https://python-visualization.github.io/folium/.  
 The map generated will overlay the node data onto a Leaflet map.
 
-.. note:: 
-   This function requires the Python package **folium**.
 
 The following example demonstrates how to plot node damage data:
 
@@ -41,3 +39,6 @@ The following example demonstrates how to plot node damage data:
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <iframe src="_static/interactive_plot.html" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
     </div>
+
+
+**Fig 3.** Interactive Map on OpenStreetMap.
