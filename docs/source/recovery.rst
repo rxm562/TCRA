@@ -10,11 +10,11 @@ Recovery (repair time) is sumulated for damaged buildings based on the level of 
 Following as an example of recovery simulation::
 
     # recovery of building, data: building invetory with damage state and occupancy type.
-    def rep(data)    
-    recovery_monte_carlo_simulation(data, num_simulations)
+    df_recovery_time= rep(data)    
+    recovery_outputs=recovery_monte_carlo_simulation(data, num_simulations)
     
     #recovery of electrical pole, data: epn invetory with failure state
-    rep_EPN(data)
+    df_recovery_epn=rep_EPN(data)
 
 
 .. figure:: figures/recovery_example.png
