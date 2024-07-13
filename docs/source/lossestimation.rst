@@ -2,7 +2,7 @@
 
     \newpage
 
-Loss Analysis
+Loss Analysis: Buildings Repair Cost
 ======================================
 Moneytary loss ($) due to buildings physical damage is estimated based on the unit cost of buildings, building footprint area, no. of story, and damage ratio. The replacement value of the building is estimated by knowing building area multiplying by no. of story and unit cost of buildings. Unit cost of buildings for a specific structural type can be estimated based on using construction cost guidelines (using local construction cost values). The total repair cost is estimated based on the structural damage ratio as a function of building replacement cost.
 
