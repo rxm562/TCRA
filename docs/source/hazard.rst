@@ -2,11 +2,11 @@
 
     \newpage
 
-Scenario Cyclone Hazard Analysis
+Hazard Analysis
 ======================================
 .. include:: <isonum.txt>
 
-**TCRA Scenario Hazard Analysis Basis**:
+**Scenario Hazard Analysis Basis**:
 
  
     The scenario cyclone-hazard estimates peak gust wind intensity at sites using a wind field model that includes surface pressure field and a system translated speed (Vickery and Wadhera 2008). The wind field model estimates the spatial variation of the wind speed over a large study area (Salman and Li 2018). 
