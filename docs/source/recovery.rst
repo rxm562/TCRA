@@ -13,7 +13,7 @@ Following as an example of recovery simulation::
     df_recovery_time= rep(data)    
     recovery_outputs=recovery_monte_carlo_simulation(data, num_simulations)
     
-    #recovery of electrical pole, data: epn invetory with failure state
+    # recovery of electrical pole, data: epn invetory with failure state
     df_recovery_epn=rep_EPN(data)
 
 
