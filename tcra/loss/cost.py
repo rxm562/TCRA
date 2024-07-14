@@ -38,7 +38,7 @@ def map_cost(data):
     for _, row in data.iterrows():
         archetype = row['type']
         try:
-            floor = int(row['FLOOR'])  # Ensure 'FLOOR' is converted to integer
+            floor = int(row['Floor'])  # Ensure 'FLOOR' is converted to integer
         except (ValueError, TypeError):
             costs.append(None)
             continue
