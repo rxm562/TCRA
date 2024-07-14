@@ -49,6 +49,13 @@ This tool development is partly supported by the **Coalition for Disaster Resili
    :scale: 100%
    :alt: Logo
 
+Project Team
+-----------------
+1. Principal Investigator: **Ram Krishna Mazumder**, Asset Management Consultant, Arcadis U.S. Inc.
+2. Co-Principal Investigator: **Subhrajit Dutta**, Assistant Professor, Department of Civil Engineering, National Institute of Technology Silchar, Assam, India
+3. Co-Principal Investigator: **Sohel Rana**, Research Lecturer, Institute of Earthquake Engineering Research, Chittagong University of Engineering & Technology, Bangladesh.
+4. Research Assistant: **Swaranjit Roy**, IEER, Chittagong University of Engineering & Technology, Bangladesh.
+5. Research Assistant: **Sahil Chettri**, Department of Civil Engineering, NIT Silchar, Assam, India
 
 Citing TCRA
 -----------------
