@@ -21,4 +21,4 @@ Following as an example of recovery simulation::
    :scale: 40%
    :alt: Logo
 
-**Fig 3.** Example Recovery Curves.
+**Fig 4.** Example Recovery Curves.
