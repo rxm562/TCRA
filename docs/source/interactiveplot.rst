@@ -41,4 +41,4 @@ The following example demonstrates how to plot node damage data:
     </div>
 
 
-**Fig 3.** Interactive Map on OpenStreetMap.
+**Fig 6.** Interactive Map on OpenStreetMap.
