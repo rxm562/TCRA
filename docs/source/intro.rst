@@ -28,6 +28,8 @@ Dependency
 * matplotlib
 * scipy
 * folium
+* collections
+* typing
 
 Version Reslease
 -----------------
