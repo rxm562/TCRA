@@ -8,14 +8,17 @@ TCRA is a Python package designed to perform scenario-based tropical cyclone ris
 
 1. Scenario-hazard estimation: peak gust wind speed at sites
 2. Vulnerability analysis using fragility curves
-3. Damage Simulation using peak gust wind and fragility curves of structures
-4. Monte Carlo Simulation is performed for estimating probability of failure
-5. Interactive outputs plotting on openstreetmap
+3. Failure Probability Estimation: Monte Carlo Simulation
+4. Loss Estimation: Damage Repair Cost
+5. Recovery Simulations
+6. Rahabilitation Scenario Simulation
+7. Plotting Outputs on OpenStreetMap
 
 
+Importing Necessary Dependencies
+---------------------
 .. code-block:: console
 
-  # Importing Necessary Dependencies
   import warnings
   import collections
   import concurrent.futures
@@ -42,8 +45,6 @@ TCRA is a Python package designed to perform scenario-based tropical cyclone ris
   from tcra.DR import damage_ratio
   from typing import List
 
-Damage Simulation
--------------------
 
 1. Hurricane Track Import, Building Data Import, Estimating Peak Velocity
 ---------------------
