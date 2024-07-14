@@ -11,7 +11,7 @@ This module simulates rehabilitation scenarios by accounting for pre-disater bui
    :scale: 40%
    :alt: Logo
 
-**Fig 3.** Example Fragility Curves Adjustment for Rehabilitation.
+**Fig 5.** Example Fragility Curves Adjustment for Rehabilitation.
 
 Following as an example of recovery simulation::
 
