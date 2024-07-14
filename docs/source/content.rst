@@ -12,6 +12,7 @@ Welcome to TCRA's documentation!
    vulnerability
    montecarlosimulation
    lossestimation
+   functionality
    recovery
    scenario
    interactiveplot
