@@ -1,5 +1,5 @@
 ====================
-Functionality Analysis and Social Impacts
+Functionality Analysis
 ====================
 
 Functionality Analysis of Buildings is performed by combining the physical damage outcomes of buildings and electrical serviceability. Following steps are needed.
@@ -26,7 +26,7 @@ Summary Damage
 
 
 ===============
-Social Impacts
+Social Impact Estimation
 ===============
 
 Social impacts are analyzed by connecting damage states outcomes with social characteristics by administrative boudaries. Population Census Data is a good source to estimate updated social characteristics.
