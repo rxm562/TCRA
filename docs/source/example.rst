@@ -75,12 +75,25 @@ Importing Necessary Dependencies
   plt.ylabel('%Buildings')
   plt.show()
 
+-------------------------------
+.. figure:: figures/functionality.png
+   :scale: 50%
+   :alt: Logo
+*Figure: Building Invetory - Structural Archetypes
+
+
   # Plotting Occupancy Types Summary
   occupancy_counts = blg.Occupancy.value_counts(normalize=True)
   occupancy_counts.plot(kind='bar')
   plt.xlabel('Occupancy Type')
   plt.ylabel('%Buildings')
   plt.show()
+
+-------------------------------
+.. figure:: figures/functionality.png
+   :scale: 50%
+   :alt: Logo
+*Figure: Building Invetory - Occupancy Types
 
 
 1.1. Scenario Hurricane - Wind Speed Simulation
@@ -96,6 +109,13 @@ Importing Necessary Dependencies
   
   df_bdg_wind.head(2)
   df_bdg_wind.drop(['ind'], axis=1, inplace=True)
+
+
+-------------------------------
+.. figure:: figures/functionality.png
+   :scale: 50%
+   :alt: Logo
+*Figure: Hurricane Winds for Buildings
 
 
 1.2. Plotting Peak Gust Wind Speed for All Buildings
@@ -348,7 +368,7 @@ Importing Necessary Dependencies
     </div>
 
 
-
+## Damage Analysis - Electrical Poles
 
 Functionality Results
 -------------------------------
