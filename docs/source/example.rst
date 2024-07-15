@@ -68,42 +68,7 @@ Importing Necessary Dependencies
   # Inventory Size
   blg.shape
 
-.. table :: cyclone input track.
 
-   ==============================  ===================================================================================================================
-   Column Title                    Description
-   ==============================  ===================================================================================================================
-   sl                              Row number
-   Time                            Time of cyclone (time step - i)
-   Lat                             Latitute of cyclone eye
-   Long                            Longitude of cyclone eye
-   CP                              Central Pressure Difference
-   ==============================  ===================================================================================================================
-
-
-
-.. table :: cyclone input track.
-   ==============================  ===================================================================================================================
-   Structure Type                    Description
-   ==============================  ===================================================================================================================
-    MSF1	                           Masonry single-family 1 story
-    MSF2	                           Masonry single-family ≥ 2 stories
-    MMUH1	                           Masonry multi-family 1 story
-    MMUH2	                           Masonry multi-family 2 stories
-    MMUH3	                           Masonry multi-family ≥ 3 stories
-    MLRM1	                           Masonry LR Strip Mall up to 15 ft
-    MLRM2	                           Masonry LR Strip Mall > 15 ft
-    MLRI	                           Masonry LR Industrial/Warehouse/Factory Buildings
-    CERBL	                           Concrete Engineered Residential LR
-    CERBM	                           Concrete Engineered Residential MR
-    CERBH	                           Concrete Engineered Residential HR
-    CECBL	                           Concrete Engineered Commercial LR
-    CECBM	                           Concrete Engineered Commercial MR 
-    CECBH	                           Concrete, Engineered Commercial HR
-    SPMBS	                           Steel Pre-Engineered Metal Small 
-    MHPHUD	                         Manufactured Home Pre-Housing and Urban Development
-   ==============================  ===================================================================================================================
-  *LR: Low-Rise (1-2 Stories); MR: Mid-Rise (3-5 Stories); High-Rise (6+ Stories)*
 
   # Plotting Structural Atchetypes Summary
   structuretype_counts=blg.type.value_counts()
@@ -113,7 +78,7 @@ Importing Necessary Dependencies
   plt.show()
 
 -------------------------------
-.. figure:: figures/functionality.png
+.. figure:: figures/Structural_Archetypes.png
    :scale: 50%
    :alt: Logo
 *Figure: Building Invetory - Structural Archetypes
