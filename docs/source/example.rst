@@ -15,7 +15,7 @@ TCRA is a Python package designed to perform scenario-based tropical cyclone ris
 7. Plotting Outputs on OpenStreetMap
 
 
-Importing Necessary Dependencies
+Importing Dependencies
 ---------------------
 .. code-block:: console
 
@@ -69,7 +69,6 @@ Importing Necessary Dependencies
   blg.shape
 
 
-
   # Plotting Structural Atchetypes Summary
   structuretype_counts=blg.type.value_counts()
   structuretype_counts.plot(kind='bar')
@@ -77,11 +76,9 @@ Importing Necessary Dependencies
   plt.ylabel('%Buildings')
   plt.show()
 
--------------------------------
 .. figure:: figures/Structural_Archetypes.png
    :scale: 50%
    :alt: Logo
-*Figure: Building Invetory - Structural Archetypes
 
 
   # Plotting Occupancy Types Summary
