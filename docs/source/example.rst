@@ -94,6 +94,7 @@ Importing Dependencies
  
 **Note:** *LR: Low-Rise (1-2 Stories); MR: Mid-Rise (3-5 Stories); High-Rise (6+ Stories).*
 
+.. code-block:: console
 
   # Plotting Structural Atchetypes Summary
   structuretype_counts=blg.type.value_counts()
@@ -102,13 +103,13 @@ Importing Dependencies
   plt.ylabel('%Buildings')
   plt.show()
 
-
 .. figure:: figures/Structural_Archetypes.png
    :scale: 40%
    :alt: Logo
 
 **Figure**: Building Invetory - Structural Archetypes
 
+.. code-block:: console
 
   # Plotting Occupancy Types Summary
   occupancy_counts = blg.Occupancy.value_counts(normalize=True)
@@ -152,12 +153,11 @@ Importing Dependencies
    EDU2	                           Colleges/Universities
    ==============================  ===================================================================================================================
 
-
 .. figure:: figures/Occupancy_Type.png
    :scale: 40%
    :alt: Logo
 
-*Figure: Building Invetory - Occupancy Types
+**Figure:** Building Invetory - Occupancy Types
 
 
 1.1. Scenario Hurricane - Wind Speed Simulation
@@ -246,10 +246,11 @@ Importing Dependencies
    :alt: Logo
 
 **Figure**: Wind Speed Map.
-  
+
+.. code-block:: console
+
   # plotting damage states
   plot_scatter(result_blg_damage, 'x', 'y', 'dmg', save_path='blg_dmg_states_unrehab.png')
-
 
 .. figure:: figures/blg_dmg_states_unrehab.png
    :scale: 40%
@@ -288,15 +289,25 @@ Importing Dependencies
   
   # plotting damage failure probability
   plot_scatter(result_bldg, 'x', 'y', 'pf', save_path='blg_Dmg.png')
-  
-  # Plotting fitted lognormal PDF & CDF of prob. of failure
-  plot_lognormal_distribution(result_bldg)
 
 .. figure:: figures/pf.png
    :scale: 40%
    :alt: Logo
 
 **Figure**: Probability of Failure (pf) map.
+
+.. code-block:: console
+
+  # Plotting fitted lognormal PDF & CDF of prob. of failure
+  plot_lognormal_distribution(result_bldg)
+
+.. figure:: figures/lognrml.png
+   :scale: 40%
+   :alt: Logo
+
+
+**Figure**: Lognormal Distribution of Probability of Failure.
+
 
 4. Loss Estimation - Damage Repair Cost
 ---------------------
@@ -322,9 +333,6 @@ Importing Dependencies
   TotalPhyLoss=Loss.PhyLoss.sum()
   TotalPhyLoss
 
-.. figure:: figures/wind_speed.png
-   :scale: 50%
-   :alt: Logo
 
 5. Recovery Simulations
 ---------------------
@@ -369,7 +377,7 @@ Importing Dependencies
   plt.xlim(0, 900)
   plt.show()
 
-.. figure:: figures/blg_dmg_states_unrehab.png
+.. figure:: figures/recovery.jpg
    :scale: 50%
    :alt: Log
 
@@ -447,17 +455,10 @@ Importing Dependencies
     </div>
 
 
-## Damage Analysis - Electrical Poles
-
-Functionality Results
--------------------------------
-.. figure:: figures/functionality.png
-   :scale: 50%
-   :alt: Logo
+8. Damage Analysis - Electrical Poles
+---------------------
 
 
-Social Impacts
--------------------------------
-.. figure:: figures/functionality.png
-   :scale: 50%
-   :alt: Logo
+
+9. Social Impacts
+---------------------
