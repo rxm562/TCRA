@@ -103,14 +103,8 @@ Importing Dependencies
   plt.show()
 
 
-
-
-
-
-
-
 .. figure:: figures/Structural_Archetypes.png
-   :scale: 50%
+   :scale: 40%
    :alt: Logo
 
 **Figure**: Building Invetory - Structural Archetypes
@@ -126,7 +120,7 @@ Importing Dependencies
 **Table:** Building Occupancy Class.
 
    ==============================  ===================================================================================================================
-   Code                            Description - Structure Type
+   Code                            Description - Occupancy Class
    ==============================  ===================================================================================================================
    RES1	                           Single-family Dwelling
    RES2	                           Mobile Home
@@ -160,7 +154,7 @@ Importing Dependencies
 
 
 .. figure:: figures/Occupancy_Type.png
-   :scale: 50%
+   :scale: 40%
    :alt: Logo
 
 *Figure: Building Invetory - Occupancy Types
@@ -181,14 +175,6 @@ Importing Dependencies
   df_bdg_wind.drop(['ind'], axis=1, inplace=True)
 
 
-
-.. figure:: figures/Occupancy Type.png.png
-   :scale: 50%
-   :alt: Logo
-
-*Figure: Hurricane Winds for Buildings
-
-
 1.2. Plotting Peak Gust Wind Speed for All Buildings
 ---------------------
 
@@ -198,6 +184,13 @@ Importing Dependencies
   plt.xlabel('Time Steps')
   plt.ylabel('Wind Speed(mph)')
   plt.show()
+
+.. figure:: figures/Cyclone_Hazard_Buildings.png
+   :scale: 40%
+   :alt: Logo
+
+**Figure**: Wind Speed during Cyclone.
+
 
 2. Vulnerability Analysis - Damage States Simulation
 ---------------------
@@ -247,9 +240,22 @@ Importing Dependencies
   
   # plotting wind speed
   plot_scatter(result_blg_damage, 'x', 'y', 'mph', save_path='wind_speed.png')
+
+.. figure:: figures/wind_speed.png
+   :scale: 40%
+   :alt: Logo
+
+**Figure**: Wind Speed Map.
   
   # plotting damage states
   plot_scatter(result_blg_damage, 'x', 'y', 'dmg', save_path='blg_dmg_states_unrehab.png')
+
+
+.. figure:: figures/blg_dmg_states_unrehab.png
+   :scale: 40%
+   :alt: Logo
+
+**Figure**: Damage States Map.
 
 
 3. Failure Probability Estimation - Monte Carlo Simulation
@@ -286,9 +292,11 @@ Importing Dependencies
   # Plotting fitted lognormal PDF & CDF of prob. of failure
   plot_lognormal_distribution(result_bldg)
 
-.. figure:: figures/damage.png
-   :scale: 50%
+.. figure:: figures/pf.png
+   :scale: 40%
    :alt: Logo
+
+**Figure**: Probability of Failure (pf) map.
 
 4. Loss Estimation - Damage Repair Cost
 ---------------------
