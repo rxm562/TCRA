@@ -69,6 +69,32 @@ Importing Dependencies
   blg.shape
 
 
+**Table:** Building Structural Archetypes.
+
+   ==============================  ===================================================================================================================
+   Code                            Description - Structure Type
+   ==============================  ===================================================================================================================
+   MSF1	                           Masonry single-family 1 story
+   MSF2	                           Masonry single-family ≥ 2 stories
+   MMUH1	                         Masonry multi-family 1 story
+   MMUH2	                         Masonry multi-family 2 stories
+   MMUH3	                         Masonry multi-family ≥ 3 stories
+   MLRM1	                         Masonry LR Strip Mall up to 15 ft
+   MLRM2	                         Masonry LR Strip Mall > 15 ft
+   MLRI	                           Masonry LR Industrial/Warehouse/Factory Buildings
+   CERBL	                         Concrete Engineered Residential LR
+   CERBM	                         Concrete Engineered Residential MR
+   CERBH	                         Concrete Engineered Residential HR
+   CECBL	                         Concrete Engineered Commercial LR
+   CECBM	                         Concrete Engineered Commercial MR 
+   CECBH	                         Concrete Engineered Commercial, HR
+   SPMBS	                         Steel Pre-Engineered Metal Small 
+   MHPHUD	                         Manufactured Home Pre-Housing and Urban Development
+   ==============================  ===================================================================================================================
+ 
+**Note:** *LR: Low-Rise (1-2 Stories); MR: Mid-Rise (3-5 Stories); High-Rise (6+ Stories).*
+
+
   # Plotting Structural Atchetypes Summary
   structuretype_counts=blg.type.value_counts()
   structuretype_counts.plot(kind='bar')
@@ -76,9 +102,18 @@ Importing Dependencies
   plt.ylabel('%Buildings')
   plt.show()
 
+
+
+
+
+
+
+
 .. figure:: figures/Structural_Archetypes.png
    :scale: 50%
    :alt: Logo
+
+**Figure**: Building Invetory - Structural Archetypes
 
 
   # Plotting Occupancy Types Summary
@@ -88,10 +123,46 @@ Importing Dependencies
   plt.ylabel('%Buildings')
   plt.show()
 
--------------------------------
-.. figure:: figures/functionality.png
+**Table:** Building Occupancy Class.
+
+   ==============================  ===================================================================================================================
+   Code                            Description - Structure Type
+   ==============================  ===================================================================================================================
+   RES1	                           Single-family Dwelling
+   RES2	                           Mobile Home
+   RES3	                           Multi-family Dwelling
+   RES4	                           Temporary Lodging
+   RES5                            Institutional Dormitory
+   RES6	                           Nursing Home
+   COM1	                           Retail Trade
+   COM2	                           Wholesale Trade
+   COM3	                           Personal and Repair Services
+   COM4	                           Professional/Technical/Business Services
+   COM5	                           Banks/Financial Institutions
+   COM6	                           Hospital
+   COM7	                           Medical Office/Clinic
+   COM8	                           Entertainment & Recreation
+   COM9	                           Theaters
+   COM10	                         Parking
+   IND1	                           Heavy Industrial
+   IND2	                           Light Industrial
+   IND3	                           Food/Drugs/Chemicals
+   IND4	                           Metals/Minerals Processing
+   IND5	                           High Technology
+   IND6	                           Construction
+   AGR1	                           Agriculture
+   REL1	                           Church/Membership Organization
+   GOV1	                           General Services
+   GOV2	                           Emergency Response
+   EDU1	                           Schools/Libraries
+   EDU2	                           Colleges/Universities
+   ==============================  ===================================================================================================================
+
+
+.. figure:: figures/Occupancy_Type.png
    :scale: 50%
    :alt: Logo
+
 *Figure: Building Invetory - Occupancy Types
 
 
@@ -110,10 +181,11 @@ Importing Dependencies
   df_bdg_wind.drop(['ind'], axis=1, inplace=True)
 
 
--------------------------------
-.. figure:: figures/functionality.png
+
+.. figure:: figures/Occupancy Type.png.png
    :scale: 50%
    :alt: Logo
+
 *Figure: Hurricane Winds for Buildings
 
 
