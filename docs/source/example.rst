@@ -15,7 +15,7 @@ TCRA is a Python package designed to perform scenario-based tropical cyclone ris
 7. Plotting Outputs on OpenStreetMap
 
 
-Importing Necessary Dependencies
+Importing Dependencies
 ---------------------
 .. code-block:: console
 
@@ -68,6 +68,34 @@ Importing Necessary Dependencies
   # Inventory Size
   blg.shape
 
+
+**Table:** Building Structural Archetypes.
+
+   ==============================  ===================================================================================================================
+   Code                            Description - Structure Type
+   ==============================  ===================================================================================================================
+   MSF1	                           Masonry single-family 1 story
+   MSF2	                           Masonry single-family ≥ 2 stories
+   MMUH1	                         Masonry multi-family 1 story
+   MMUH2	                         Masonry multi-family 2 stories
+   MMUH3	                         Masonry multi-family ≥ 3 stories
+   MLRM1	                         Masonry LR Strip Mall up to 15 ft
+   MLRM2	                         Masonry LR Strip Mall > 15 ft
+   MLRI	                           Masonry LR Industrial/Warehouse/Factory Buildings
+   CERBL	                         Concrete Engineered Residential LR
+   CERBM	                         Concrete Engineered Residential MR
+   CERBH	                         Concrete Engineered Residential HR
+   CECBL	                         Concrete Engineered Commercial LR
+   CECBM	                         Concrete Engineered Commercial MR 
+   CECBH	                         Concrete Engineered Commercial, HR
+   SPMBS	                         Steel Pre-Engineered Metal Small 
+   MHPHUD	                         Manufactured Home Pre-Housing and Urban Development
+   ==============================  ===================================================================================================================
+ 
+**Note:** *LR: Low-Rise (1-2 Stories); MR: Mid-Rise (3-5 Stories); High-Rise (6+ Stories).*
+
+.. code-block:: console
+
   # Plotting Structural Atchetypes Summary
   structuretype_counts=blg.type.value_counts()
   structuretype_counts.plot(kind='bar')
@@ -75,12 +103,61 @@ Importing Necessary Dependencies
   plt.ylabel('%Buildings')
   plt.show()
 
+.. figure:: figures/Structural_Archetypes.png
+   :scale: 20%
+   :alt: Logo
+
+**Figure**: Building Invetory - Structural Archetypes
+
+.. code-block:: console
+
   # Plotting Occupancy Types Summary
   occupancy_counts = blg.Occupancy.value_counts(normalize=True)
   occupancy_counts.plot(kind='bar')
   plt.xlabel('Occupancy Type')
   plt.ylabel('%Buildings')
   plt.show()
+
+**Table:** Building Occupancy Class.
+
+   ==============================  ===================================================================================================================
+   Code                            Description - Occupancy Class
+   ==============================  ===================================================================================================================
+   RES1	                           Single-family Dwelling
+   RES2	                           Mobile Home
+   RES3	                           Multi-family Dwelling
+   RES4	                           Temporary Lodging
+   RES5                            Institutional Dormitory
+   RES6	                           Nursing Home
+   COM1	                           Retail Trade
+   COM2	                           Wholesale Trade
+   COM3	                           Personal and Repair Services
+   COM4	                           Professional/Technical/Business Services
+   COM5	                           Banks/Financial Institutions
+   COM6	                           Hospital
+   COM7	                           Medical Office/Clinic
+   COM8	                           Entertainment & Recreation
+   COM9	                           Theaters
+   COM10	                         Parking
+   IND1	                           Heavy Industrial
+   IND2	                           Light Industrial
+   IND3	                           Food/Drugs/Chemicals
+   IND4	                           Metals/Minerals Processing
+   IND5	                           High Technology
+   IND6	                           Construction
+   AGR1	                           Agriculture
+   REL1	                           Church/Membership Organization
+   GOV1	                           General Services
+   GOV2	                           Emergency Response
+   EDU1	                           Schools/Libraries
+   EDU2	                           Colleges/Universities
+   ==============================  ===================================================================================================================
+
+.. figure:: figures/Occupancy_Type.png
+   :scale: 20%
+   :alt: Logo
+
+**Figure:** Building Invetory - Occupancy Types
 
 
 1.1. Scenario Hurricane - Wind Speed Simulation
@@ -107,6 +184,13 @@ Importing Necessary Dependencies
   plt.xlabel('Time Steps')
   plt.ylabel('Wind Speed(mph)')
   plt.show()
+
+.. figure:: figures/Cyclone_Hazard_Buildings.png
+   :scale: 20%
+   :alt: Logo
+
+**Figure**: Wind Speed during Cyclone.
+
 
 2. Vulnerability Analysis - Damage States Simulation
 ---------------------
@@ -156,9 +240,23 @@ Importing Necessary Dependencies
   
   # plotting wind speed
   plot_scatter(result_blg_damage, 'x', 'y', 'mph', save_path='wind_speed.png')
-  
+
+.. figure:: figures/wind_speed.png
+   :scale: 30%
+   :alt: Logo
+
+**Figure**: Wind Speed Map.
+
+.. code-block:: console
+
   # plotting damage states
   plot_scatter(result_blg_damage, 'x', 'y', 'dmg', save_path='blg_dmg_states_unrehab.png')
+
+.. figure:: figures/blg_dmg_states_unrehab.png
+   :scale: 30%
+   :alt: Logo
+
+**Figure**: Damage States Map.
 
 
 3. Failure Probability Estimation - Monte Carlo Simulation
@@ -191,13 +289,25 @@ Importing Necessary Dependencies
   
   # plotting damage failure probability
   plot_scatter(result_bldg, 'x', 'y', 'pf', save_path='blg_Dmg.png')
-  
+
+.. figure:: figures/pf.png
+   :scale: 30%
+   :alt: Logo
+
+**Figure**: Probability of Failure (pf) map.
+
+.. code-block:: console
+
   # Plotting fitted lognormal PDF & CDF of prob. of failure
   plot_lognormal_distribution(result_bldg)
 
-.. figure:: figures/damage.png
-   :scale: 50%
+.. figure:: figures/lognrml.png
+   :scale: 70%
    :alt: Logo
+
+
+**Figure**: Lognormal Distribution of Probability of Failure.
+
 
 4. Loss Estimation - Damage Repair Cost
 ---------------------
@@ -223,9 +333,6 @@ Importing Necessary Dependencies
   TotalPhyLoss=Loss.PhyLoss.sum()
   TotalPhyLoss
 
-.. figure:: figures/wind_speed.png
-   :scale: 50%
-   :alt: Logo
 
 5. Recovery Simulations
 ---------------------
@@ -270,7 +377,7 @@ Importing Necessary Dependencies
   plt.xlim(0, 900)
   plt.show()
 
-.. figure:: figures/blg_dmg_states_unrehab.png
+.. figure:: figures/recovery.jpg
    :scale: 50%
    :alt: Log
 
@@ -348,17 +455,10 @@ Importing Necessary Dependencies
     </div>
 
 
+8. Damage Analysis - Electrical Poles
+---------------------
 
 
-Functionality Results
--------------------------------
-.. figure:: figures/functionality.png
-   :scale: 50%
-   :alt: Logo
 
-
-Social Impacts
--------------------------------
-.. figure:: figures/functionality.png
-   :scale: 50%
-   :alt: Logo
+9. Social Impacts
+---------------------
