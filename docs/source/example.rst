@@ -104,7 +104,7 @@ Importing Dependencies
   plt.show()
 
 .. figure:: figures/Structural_Archetypes.png
-   :scale: 40%
+   :scale: 20%
    :alt: Logo
 
 **Figure**: Building Invetory - Structural Archetypes
@@ -154,7 +154,7 @@ Importing Dependencies
    ==============================  ===================================================================================================================
 
 .. figure:: figures/Occupancy_Type.png
-   :scale: 40%
+   :scale: 20%
    :alt: Logo
 
 **Figure:** Building Invetory - Occupancy Types
@@ -186,7 +186,7 @@ Importing Dependencies
   plt.show()
 
 .. figure:: figures/Cyclone_Hazard_Buildings.png
-   :scale: 40%
+   :scale: 20%
    :alt: Logo
 
 **Figure**: Wind Speed during Cyclone.
@@ -242,7 +242,7 @@ Importing Dependencies
   plot_scatter(result_blg_damage, 'x', 'y', 'mph', save_path='wind_speed.png')
 
 .. figure:: figures/wind_speed.png
-   :scale: 40%
+   :scale: 30%
    :alt: Logo
 
 **Figure**: Wind Speed Map.
@@ -253,7 +253,7 @@ Importing Dependencies
   plot_scatter(result_blg_damage, 'x', 'y', 'dmg', save_path='blg_dmg_states_unrehab.png')
 
 .. figure:: figures/blg_dmg_states_unrehab.png
-   :scale: 40%
+   :scale: 30%
    :alt: Logo
 
 **Figure**: Damage States Map.
@@ -291,7 +291,7 @@ Importing Dependencies
   plot_scatter(result_bldg, 'x', 'y', 'pf', save_path='blg_Dmg.png')
 
 .. figure:: figures/pf.png
-   :scale: 40%
+   :scale: 30%
    :alt: Logo
 
 **Figure**: Probability of Failure (pf) map.
@@ -302,7 +302,7 @@ Importing Dependencies
   plot_lognormal_distribution(result_bldg)
 
 .. figure:: figures/lognrml.png
-   :scale: 40%
+   :scale: 70%
    :alt: Logo
 
 
