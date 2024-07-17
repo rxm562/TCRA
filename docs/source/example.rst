@@ -508,7 +508,7 @@ Importing Dependencies
   plot_scatter(result_epn_damage, 'x', 'y', 'dmg', save_path='dsm_epn.png')
 
 .. figure:: figures/dmg_epn.png
-   :scale: 50%
+   :scale: 30%
    :alt: Log
 
 **Figure**: Electrical Poles Damage States.
