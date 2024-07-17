@@ -381,6 +381,9 @@ Importing Dependencies
    :scale: 50%
    :alt: Log
 
+**Figure**: Recovery.
+
+
 6. Rahab Simulation
 ---------------------
 
@@ -458,6 +461,57 @@ Importing Dependencies
 8. Damage Analysis - Electrical Poles
 ---------------------
 
+.. code-block:: console
+
+  epn_data = pd.read_csv('pole.csv')
+  epn_data.head()
+  
+  # Running wind hazard module to estimate Cyclone track characteristics and Wind Speeds
+  # df_epn_wind: database return with wind speed, VG: gust wind velocity
+  cyclone_parameters = CycloneParameters(track_df)
+  df_track = cyclone_parameters.estimate_parameters()
+  df_epn_wind, VG = cyclone_parameters.calculate_wind_speeds(df_track, epn_data)
+  
+  df_epn_wind.shape
+  df_epn_wind.drop(['ind'], axis=1, inplace=True)
+  
+  # Assign random seed to reproduce random numbers
+  seed=1234
+  np.random.seed(seed)
+
+  epn_data = df_epn_wind
+  
+  # Defining Damage States
+  DStates=['Fail']
+  
+  # Running Vulnerability Analysis based on Fragility Curves to assign Damage States to Structures
+  fra= FragilityAnalysis(fragility_curves_epn)
+  Pr = fra.estimate_epn_damage_state(epn_data)
+  # Pr =EPP_damage_state(epn_data)
+  epn_damage_state = fra.sample_damage_state(Pr, DStates,seed)
+
+  # Mapping Damage States [DStates] to Structures
+  DamageStateMap = {None: 0, 'Fail': 1}
+  damage_state = epn_damage_state.map(DamageStateMap)
+  
+  # Adding columns to estimate damage State Probabilities (LS: Limit State, DS: Damage State)
+  DS_Prob=Pr
+  DS_Prob['LS1'] = DS_Prob['Fail']
+  DS_Prob['DS0'] = 1 - DS_Prob['Fail']
+  DS_Prob['DS1'] = DS_Prob['Fail']
+
+  # Merging Assigned Damage States (dmg) and DS probabilities to structure inventory
+  s = pd.Series(damage_state,name='dmg')
+  result_epn_damage= DS_Prob.join(s)
+  
+  # plotting damage state maps
+  plot_scatter(result_epn_damage, 'x', 'y', 'dmg', save_path='dsm_epn.png')
+
+.. figure:: figures/dmg_epn.png
+   :scale: 50%
+   :alt: Log
+
+**Figure**: Electrical Poles Damage States.
 
 
 9. Social Impacts
