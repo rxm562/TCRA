@@ -516,3 +516,34 @@ Importing Dependencies
 
 9. Social Impacts
 ---------------------
+
+.. code-block:: console
+
+
+  # Building Data - merging building damage information to building invetory
+  s = pd.Series(damage_state,name='dmg')
+  result_blg_damage= blg.join(s)
+  
+  result_blg_damage.head(2)
+  
+  df=result_blg_damage
+  df['unit'] = categorize_areas(df)
+  df['hh_unit'] = df["Floor"] * df["unit"]
+  
+  
+  # Assume buildings will be non-operable if DS>2 (i.e., extensive or complete damage)
+  df=df[df.dmg>2]
+  
+  # Dislocated households and non-operable buildings
+  residential_df = df[df['Occupancy'].isin(['RES1', 'RES2', 'RES3', 'RES4', 'RES5', 'RES6'])]
+  educational_df = df[df['Occupancy'].isin(['EDU1', 'EDU2'])]
+  government_df = df[df['Occupancy'].isin(['GOV1', 'GOV2'])]
+  industrial_df = df[df['Occupancy'].isin(['IND1', 'IND2', 'IND3', 'IND4', 'IND5', 'IND6'])]
+
+  # No. of dislocated residential buildings, and damage to essential facilities
+
+  print('Total residential buildings dislocated:', residential_df.shape[0])
+  print('Total households dislocated:', residential_df.hh_unit.sum())
+  print('Total education buildings damaged:', educational_df.shape[0])
+  print('Total government buildings damaged:', government_df.shape[0])
+  print('Total industrial buildings damaged:', industrial_df.shape[0])
