@@ -1,13 +1,20 @@
 # plotting lognormal distribution of pf
 def plot_lognormal_distribution(result_bldg):
     """ 
-    this function uses the pf estimated using DamageProbabilityCalculator to plot pdf and cdf of pf of buildings.
+    this function plots probability distribution functions for fitted lognormal probability of failure data.
     Parameters
     ----------
-    inp_file_name: 
-        building invetory, probability of failures.
+    pf : probability of failure estimated
+        Monte Carlo simulation
+    df : building inventory dataframe with damage state
+        dmg - damage state
+
+    Returns
+    -------
+    pdf : probability density function
+    cdf : cumulative distribution function
     """
-  
+    
     # Prepare data
     df = pd.DataFrame(result_bldg.pf)
     epsilon = 1e-10
