@@ -308,7 +308,7 @@ Importing Dependencies
   # Plotting fitted lognormal PDF & CDF of prob. of failure
   plot_lognormal_distribution(result_bldg_pf)
 
-.. figure:: figures/lognrml.png
+.. figure:: figures/lognorm.png
    :scale: 70%
    :alt: Logo
 
@@ -469,7 +469,7 @@ Importing Dependencies
         <iframe src="_static/interactive_plot.html" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
     </div>
 
-8. Damage Analysis - Electrical Poles
+8. Social Impact Analysis
 ---------------------
 
 .. code-block:: console
@@ -554,7 +554,7 @@ Importing Dependencies
   m_epn
 
 
-.. figure:: figures/dmg_epn.png
+.. figure:: figures/dsm_epn.png
    :scale: 30%
    :alt: Log
 
