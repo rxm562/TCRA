@@ -7,7 +7,7 @@ Recovery Simulation
 
 Recovery (repair time) is sumulated for damaged buildings based on the level of damaged sustained by the buildings, building occupancy type and recovery time recommended by FEMA. [R1]_ FEMA (2020) guideline provides expected mean repair time by building occupancy type for various damage states. To account the uncertainity in recovery time, a COV was assumed for correspond to mean recovery time. More information on the initializer can be found in the API documentation, under :class:`~tcra.recovery.recovery` section.
 
-Following as an example of recovery simulation::
+**Following as an example of recovery simulation**::
 
     # recovery of building, data: building invetory with damage state and occupancy type.
     building_dmg= pd.merge(blg, df_ds, on='id')
