@@ -19,14 +19,14 @@ Functionality Analysis of Buildings is performed by combining the physical damag
 
 Following is an example of running functionality analysis - combining buildings and electrical poles::
 
-Step 1: Conducting Voronoi analysis in QGIS (this can be done using other tools):
+   Step 1: Conducting Voronoi analysis in QGIS (this can be done using other tools):
    
    1. **Prepare Data:** load EPN layer and ensure it's in a projected coordinate system.
    2. **Open Processing Toolbox:** go to `Processing` > `Toolbox`.
    3. **Generate Voronoi Polygons:** search for `Voronoi polygons` in the toolbox, select EPN layer as input, specify output settings (study area boundary), and run the tool.
    4. **Connect Building to Voronoi Layer:** intersect building layer to voronoi layer to assign dependent voronoi service area and/or dependent electrical pole. 'vid' field in the building layer is obtained through this process and vid represents epn id, as well as voronoi id corresponds to a building
 
-Step 2: Combining buildings and electrical poles results:
+   Step 2: Combining buildings and electrical poles results:
 
    # Building inventory with voronoi and damage info
    building_dmg.head()
