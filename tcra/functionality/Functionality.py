@@ -1,4 +1,9 @@
-import pandas as pd
+"""
+The tcra functionality analysis module contains function to perform
+social impacts analysis by connecting physical damage to social system.
+
+"""
+
 
 def calculate_fs(df, dmg_col, dmg_epn_col):
     """ this function estimates replacement cost by archetype using unit replacement cost per unit area. 
