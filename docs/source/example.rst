@@ -557,6 +557,13 @@ Importing Dependencies
   m_epn=plot_interactive_map(node, node_dmg, node_size=3, node_cmap_bins='cut', node_cmap=None, link_cmap=None)
   m_epn
 
+
+.. figure:: figures/dsm_epn.png
+   :scale: 30%
+   :alt: Log
+
+**Figure**: Electrical Poles Damage States.
+
 .. raw:: html
     
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
@@ -564,12 +571,6 @@ Importing Dependencies
     </div>
 
 **Figure**: EPN Outputs on OpenStreetMap.
-
-.. figure:: figures/dsm_epn.png
-   :scale: 30%
-   :alt: Log
-
-**Figure**: Electrical Poles Damage States.
 
 
 10. Functionality Analysis - Connecting Building & EPN Performance
