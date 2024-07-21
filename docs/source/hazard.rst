@@ -51,7 +51,7 @@ This module requires (1) cyclone input track, and (2) targeted structural invent
     2. **estimate_parameters**: this function estimates parameters for input track
     3. **calculate_wind_speeds**: this function estimates wind speed at sites
 
-Following is an example of running hazard module to estimate the cyclone parameters and intensity at buildings::
+**Following is an example of running hazard module to estimate the cyclone parameters and intensity at buildings**::
 
     # track_df: cyclone track input dataframe (see table - cyclone input track), df_track: estimated hazard parameters, 
     # and blg: buildings inventory (see table - building input data), df_bdg_wind: estimated wind speed, VG: gradient wind speed (kmh).

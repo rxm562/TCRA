@@ -12,6 +12,8 @@ Subpackages
     tcra.loss
     tcra.recovery
     tcra.plot
+    tcra.social
+    tcra.functionality
 
 Module contents
 ---------------
