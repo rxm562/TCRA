@@ -1,6 +1,14 @@
 import pandas as pd
 
 def calculate_fs(df, dmg_col, dmg_epn_col):
+    """ this function estimates replacement cost by archetype using unit replacement cost per unit area. 
+    cost_dict is required to be updated based on the local construction cost.
+    
+    Parameters
+    ----------
+    inp_file_name: 
+        unit replacement cost, building footprint area, no. of story/floor.
+    """
     def determine_fs(row):
         if row[dmg_col] <= 2 and row[dmg_epn_col] == 0:
             return 2
