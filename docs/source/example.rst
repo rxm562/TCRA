@@ -309,7 +309,7 @@ Importing Dependencies
   plot_lognormal_distribution(result_bldg_pf)
 
 .. figure:: figures/lognorm.png
-   :scale: 70%
+   :scale: 30%
    :alt: Logo
 
 
