@@ -57,7 +57,7 @@ Social Impact Estimation
 
 Social impacts are analyzed by connecting damage state outcomes with social characteristics by administrative boundaries. Population census data is a good source to estimate updated social characteristics. The number of household dislocations and the number of educational, governmental, and industrial buildings that are non-operable are estimated by connecting physical damage with household information. The number of housing units in a building in this study was estimated based on the building footprint and the number of floors. A residential building with an area greater than 300 square meters is assumed to have four households. Similarly, residential buildings with areas of 110, 195, and 300 square meters are assumed to have 1, 2, and 3 housing units, respectively.
 
-Following is an example of running social impact analysis::
+**Following is an example of running social impact analysis**::
 
    # Building Inventory with damage state
    df=building_dmg
