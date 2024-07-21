@@ -13,7 +13,9 @@ TCRA is a Python package designed to perform scenario-based tropical cyclone ris
 5. Recovery Simulations
 6. Rahabilitation Scenario Simulation
 7. Plotting Outputs on OpenStreetMap
-
+8. Social Impact Analysis
+9. EPN Damage Analysis 
+10. Functionality Analysis
 
 Importing Dependencies
 ---------------------
@@ -42,6 +44,8 @@ Importing Dependencies
   from tcra.Interactive import plot_interactive_map
   from tcra.Recovery import rep, rep_EPN, recovery_monte_carlo_simulation
   from tcra.Cost import map_cost
+  from tcra.SocialAnalysis import categorize_area, categorize_areas
+  from tcra.Functionality import calculate_fs
   from tcra.DR import damage_ratio
   from typing import List
 
@@ -214,9 +218,13 @@ Importing Dependencies
   Pr = fra.estimate_damage_state(building_data)
   damage_state = fra.sample_damage_state(Pr, DStates,seed)
   
+  # Defining damage states to dataframe
+  ids, statuses = damage_state
+  df_ds = pd.DataFrame({'id': ids, 'status': statuses})
+  
   # Mapping Damage States [DStates] to Structures
   DamageStateMap = {None: 0, 'Slight': 1, 'Moderate': 2, 'Extensive': 3, 'Complete': 4}
-  damage_state = damage_state.map(DamageStateMap)
+  df_ds['dmg'] = df_ds['status'].map(DamageStateMap)
   
   # Adding columns to estimate damage State Probabilities (LS: Limit State, DS: Damage State)
   DS_Prob=Pr
@@ -233,8 +241,7 @@ Importing Dependencies
   DS_Prob.head(2)
   
   # Merging Assigned Damage States (dmg) and DS probabilities to structure inventory
-  s = pd.Series(damage_state,name='dmg')
-  result_blg_damage= DS_Prob.join(s)
+  result_blg_damage=pd.merge(DS_Prob, df_ds, on='id')
   
   result_blg_damage.head(2)
   
@@ -283,12 +290,12 @@ Importing Dependencies
   df_bldg.head(2)
   
   # Merging failure probability to structural inventory data
-  result_bldg=pd.merge(result_blg_damage, df_bldg, on='id')
+  result_bldg_pf=pd.merge(result_blg_damage, df_bldg, on='id')
   
-  result_bldg.head(2)
+  result_bldg_pf.head(2)
   
   # plotting damage failure probability
-  plot_scatter(result_bldg, 'x', 'y', 'pf', save_path='blg_Dmg.png')
+  plot_scatter(result_bldg_pf, 'x', 'y', 'pf', save_path='pf.png')
 
 .. figure:: figures/pf.png
    :scale: 30%
@@ -299,7 +306,7 @@ Importing Dependencies
 .. code-block:: console
 
   # Plotting fitted lognormal PDF & CDF of prob. of failure
-  plot_lognormal_distribution(result_bldg)
+  plot_lognormal_distribution(result_bldg_pf)
 
 .. figure:: figures/lognrml.png
    :scale: 70%
@@ -320,8 +327,7 @@ Importing Dependencies
   df_cost.head(2)
   
   # Merging cost and damage outputs
-  s = pd.Series(damage_state,name='dmg')
-  df_cost_dmg= df_cost.join(s)
+  df_cost_dmg=pd.merge(df_cost, df_ds, on='id')
   
   # Generating Damage Ratio of each building
   Loss = damage_ratio(df_cost_dmg)
@@ -329,9 +335,10 @@ Importing Dependencies
   # Estimating Physical Damage Repair Cost ($) for each building
   Loss['PhyLoss']=Loss['RCost']*Loss['DRatio']
   
-  #### Estimated Loss due to Physical Damage in $USD
+  # Project Loss due to Physical Damage in $USD
+  TotalLoss=Loss.PhyLoss.sum()
   TotalPhyLoss=Loss.PhyLoss.sum()
-  TotalPhyLoss
+  print(f"{TotalLoss / 1000000:.1f} Million USD")
 
 
 5. Recovery Simulations
@@ -339,17 +346,21 @@ Importing Dependencies
 
 .. code-block:: console
 
+  # Building inventory with damage state
+  building_dmg= pd.merge(blg, df_ds, on='id')
+  result_blg_dmg=building_dmg
+
   # Simulating Recovery Time of Buildings
-  recovery_time = rep(result_bldg)
-  result_bldg['RT_bdg'] = list(recovery_time)
+  recovery_time = rep(result_blg_dmg)
+  result_blg_dmg['RT_bdg'] = list(recovery_time)
   
   bb = []
   tt = list(range(0, 1000, 5))
   for T in tt:
-      bb.append(result_bldg[result_bldg.RT_bdg < T].shape[0])
+      bb.append(result_blg_dmg[result_blg_dmg.RT_bdg < T].shape[0])
   
-  bb=pd.Series(bb)*100/result_bldg.shape[0]
-  
+  bb=pd.Series(bb)*100/result_blg_dmg.shape[0] 
+
   x = list(tt)
   y1 = list(bb)
   rec_bldg=pd.DataFrame({'T': x,'Rec': y1})
@@ -363,7 +374,7 @@ Importing Dependencies
   plt.show()
 
   # Recovery Analysis - Multiple Recovery Scenarios using Monte Carlo Simulation
-  x, all_simulations, mean, minimum, maximum = recovery_monte_carlo_simulation(result_bldg, num_simulations=100)
+  x, all_simulations, mean, minimum, maximum = recovery_monte_carlo_simulation(result_blg_dmg, num_simulations=10)
 
 
   # Plotting all simulations results
@@ -390,29 +401,31 @@ Importing Dependencies
 .. code-block:: console
 
   # Building damage outcomes and probability of failures
-  output_building=result_bldg
-  
+  output_building=result_bldg_pf
+
   # Repairing buildings that has pf>0.7
   output_building.pf[output_building.pf>0.7].shape[0]/output_building.pf.shape[0]
-  
+    
   # Updating Building Type for buildings prioritized for repair, 'type_R', _R represets rehab
   df=output_building
   df['ntype'] = df.apply(lambda row: f"{row['type']}{'_R'}" if row['pf'] >0.4 else row['type'], axis=1)
-  
+    
   df=df.drop(columns=['type'])
   df.rename(columns={'ntype': 'type'}, inplace=True)
   
   # rehab factor and updating fragility curves accordingly
-  rehab_factor = 1.5
+  rehab_factor = 1.3
   fragility_curves_rehab = rehab_fragility_curves(rehab_factor)
-
+  
   DStates=['Slight','Moderate','Extensive', 'Complete']
   fra= FragilityAnalysis(fragility_curves_rehab)
   Pr_rehab = fra.estimate_damage_state(df)
-  damage_state_rehab = fra.sample_damage_state(Pr_rehab, DStates,101)
-  DamageStateMap = {None:0, 'Slight': 1, 'Moderate': 2, 'Extensive':3, 'Complete': 4}
+  damage_state_rehab = fra.sample_damage_state(Pr_rehab, DStates,seed)
+  ids, statuses = damage_state_rehab
+  df_ds = pd.DataFrame({'id': ids, 'status': statuses})
+  DamageStateMap = {None: 0, 'Slight': 1, 'Moderate': 2, 'Extensive': 3, 'Complete': 4}
+  df_ds['dmg'] = df_ds['status'].map(DamageStateMap)
   
-  damage_state_rehab=damage_state_rehab.map(DamageStateMap)
   DS_Prob=Pr_rehab
   DS_Prob['LS1'] = DS_Prob['Slight']
   DS_Prob['LS2'] = DS_Prob['Moderate']
@@ -423,23 +436,22 @@ Importing Dependencies
   DS_Prob['DS2'] = DS_Prob['Moderate'] - DS_Prob['Extensive']
   DS_Prob['DS3'] = DS_Prob['Extensive'] - DS_Prob['Complete']
   DS_Prob['DS4'] = DS_Prob['Complete']
-  s = pd.Series(damage_state_rehab,name='dmg')
-  blg_dmg_rehab= DS_Prob.join(s)
-  
+  blg_dmg_rehab=pd.merge(DS_Prob, df_ds, on='id')
+
   ## Cost Info
   new_blg_dmg_rehab = blg_dmg_rehab[['id', 'dmg']]
   blg_dmg_rehab=pd.merge(df_cost, new_blg_dmg_rehab, on='id')
-
+    
   # new damage states of buildings after rehab
   blg_dmg_rehab.head(2)
   
-  # estimating physical replacement cost after applying rehab
+  # Estimating physical replacement cost after applying rehab
   result_p = damage_ratio(blg_dmg_rehab)
   result_p['PhyLoss']=result_p['RCost']*result_p['DRatio']
   TotalLoss=result_p.PhyLoss.sum()
-  TotalLoss
+  print(f"{TotalLoss / 1000000:.1f} Million USD")
 
-7. Plotting Outputs Interactively - Damage States
+7. Plotting Interactive Outputs on Open Street Map - Damage States
 ---------------------
 
 .. code-block:: console
@@ -457,8 +469,35 @@ Importing Dependencies
         <iframe src="_static/interactive_plot.html" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
     </div>
 
-
 8. Damage Analysis - Electrical Poles
+---------------------
+
+.. code-block:: console
+
+  # Building Data with 
+  building_dmg.head(2)
+  
+  df=building_dmg
+  df['unit'] = categorize_areas(df)
+  df['hh_unit'] = df["Floor"] * df["unit"]
+  
+  # Assume buildings will be non-operable if DS>2 (i.e., extensive or complete)
+  df=df[df.dmg>2]
+
+  # Dislocated households
+  residential_df = df[df['Occupancy'].isin(['RES1', 'RES2', 'RES3', 'RES4', 'RES5', 'RES6'])]
+  educational_df = df[df['Occupancy'].isin(['EDU1', 'EDU2'])]
+  government_df = df[df['Occupancy'].isin(['GOV1', 'GOV2'])]
+  industrial_df = df[df['Occupancy'].isin(['IND1', 'IND2', 'IND3', 'IND4', 'IND5', 'IND6'])]
+  
+  print('Total residential buildings dislocated:', residential_df.shape[0])
+  print('Total households dislocated:', residential_df.hh_unit.sum())
+  print('Total education buildings damaged:', educational_df.shape[0])
+  print('Total government buildings damaged:', government_df.shape[0])
+  print('Total industrial buildings damaged:', industrial_df.shape[0])
+
+
+9. Damage Analysis - Electrical Poles
 ---------------------
 
 .. code-block:: console
@@ -471,10 +510,10 @@ Importing Dependencies
   cyclone_parameters = CycloneParameters(track_df)
   df_track = cyclone_parameters.estimate_parameters()
   df_epn_wind, VG = cyclone_parameters.calculate_wind_speeds(df_track, epn_data)
-  
+    
   df_epn_wind.shape
   df_epn_wind.drop(['ind'], axis=1, inplace=True)
-  
+    
   # Assign random seed to reproduce random numbers
   seed=1234
   np.random.seed(seed)
@@ -483,29 +522,37 @@ Importing Dependencies
   
   # Defining Damage States
   DStates=['Fail']
-  
+
   # Running Vulnerability Analysis based on Fragility Curves to assign Damage States to Structures
   fra= FragilityAnalysis(fragility_curves_epn)
   Pr = fra.estimate_epn_damage_state(epn_data)
-  # Pr =EPP_damage_state(epn_data)
   epn_damage_state = fra.sample_damage_state(Pr, DStates,seed)
+
+  ids, statuses = epn_damage_state
+  df_epn_ds = pd.DataFrame({'id': ids, 'status': statuses})
 
   # Mapping Damage States [DStates] to Structures
   DamageStateMap = {None: 0, 'Fail': 1}
-  damage_state = epn_damage_state.map(DamageStateMap)
+  df_epn_ds['dmg'] = df_epn_ds['status'].map(DamageStateMap)
   
   # Adding columns to estimate damage State Probabilities (LS: Limit State, DS: Damage State)
   DS_Prob=Pr
   DS_Prob['LS1'] = DS_Prob['Fail']
   DS_Prob['DS0'] = 1 - DS_Prob['Fail']
   DS_Prob['DS1'] = DS_Prob['Fail']
-
-  # Merging Assigned Damage States (dmg) and DS probabilities to structure inventory
-  s = pd.Series(damage_state,name='dmg')
-  result_epn_damage= DS_Prob.join(s)
   
+  # Merging Assigned Damage States (dmg) and DS probabilities to structure inventory
+  result_epn_damage= pd.merge(DS_Prob, df_epn_ds, on='id')
+    
   # plotting damage state maps
   plot_scatter(result_epn_damage, 'x', 'y', 'dmg', save_path='dsm_epn.png')
+
+  # Plot Damage
+  node=result_epn_damage.loc[0:,'x': 'y']
+  node_dmg=result_epn_damage.loc[0:,'dmg']
+  m_epn=plot_interactive_map(node, node_dmg, node_size=3, node_cmap_bins='cut', node_cmap=None, link_cmap=None)
+  m_epn
+
 
 .. figure:: figures/dmg_epn.png
    :scale: 30%
@@ -514,36 +561,36 @@ Importing Dependencies
 **Figure**: Electrical Poles Damage States.
 
 
-9. Social Impacts
+10. Functionality Analysis - Connecting Building & EPN Performance
 ---------------------
 
 .. code-block:: console
 
 
-  # Building Data - merging building damage information to building invetory
-  s = pd.Series(damage_state,name='dmg')
-  result_blg_damage= blg.join(s)
+  # Building Inventoy is mapped to corresponding dependent EPN pole through voronoi polygon
+  # Voronoi polygon is a geospatial analysis to determine service area for each electrical outlet (i.e. poles)
   
-  result_blg_damage.head(2)
+  Here are steps for conducting Voronoi analysis in QGIS (this can be done using other tools):
   
-  df=result_blg_damage
-  df['unit'] = categorize_areas(df)
-  df['hh_unit'] = df["Floor"] * df["unit"]
-  
-  
-  # Assume buildings will be non-operable if DS>2 (i.e., extensive or complete damage)
-  df=df[df.dmg>2]
-  
-  # Dislocated households and non-operable buildings
-  residential_df = df[df['Occupancy'].isin(['RES1', 'RES2', 'RES3', 'RES4', 'RES5', 'RES6'])]
-  educational_df = df[df['Occupancy'].isin(['EDU1', 'EDU2'])]
-  government_df = df[df['Occupancy'].isin(['GOV1', 'GOV2'])]
-  industrial_df = df[df['Occupancy'].isin(['IND1', 'IND2', 'IND3', 'IND4', 'IND5', 'IND6'])]
+  1. **Prepare Data:** load EPN layer and ensure it's in a projected coordinate system.
+  2. **Open Processing Toolbox:** go to `Processing` > `Toolbox`.
+  3. **Generate Voronoi Polygons:** search for `Voronoi polygons` in the toolbox, select EPN layer as input, specify output settings (study area boundary), and run the tool.
+  4. **Connect Building to Voronoi Layer:** intersect building layer to voronoi layer to assign dependent voronoi service area and/or dependent electrical pole. 'vid' field in the building layer is obtained through this process and vid represents epn id, as well as voronoi id corresponds to a building
 
-  # No. of dislocated residential buildings, and damage to essential facilities
 
-  print('Total residential buildings dislocated:', residential_df.shape[0])
-  print('Total households dislocated:', residential_df.hh_unit.sum())
-  print('Total education buildings damaged:', educational_df.shape[0])
-  print('Total government buildings damaged:', government_df.shape[0])
-  print('Total industrial buildings damaged:', industrial_df.shape[0])
+  # building inventory with voronoi and damage info
+  building_dmg.head()
+  
+  # EPN data with damage state
+  result_epn = result_epn_damage[['id', 'dmg']].rename(columns={'dmg': 'dmg_epn','id':'id_epn'})
+  
+  # Building Data - merging dmg to building invetory
+  blg_epn_results = pd.merge(building_dmg, result_epn, left_on='vid', right_on='id_epn')
+  
+  blg_epn_results.head(2)
+  
+  # Calculate Functionality State: 'FS'
+  df_func = calculate_fs(blg_epn_results, 'dmg', 'dmg_epn')
+  
+  # Functionality Results (0: No Functionality, 1: Partially Functional, 2: Fully Functional)
+  df_func.FS.value_counts()
