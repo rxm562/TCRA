@@ -469,6 +469,10 @@ Importing Dependencies
         <iframe src="_static/interactive_plot.html" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
     </div>
 
+**Figure**: Building Outputs on OpenStreetMap.
+
+
+
 8. Social Impact Analysis
 ---------------------
 
@@ -553,6 +557,13 @@ Importing Dependencies
   m_epn=plot_interactive_map(node, node_dmg, node_size=3, node_cmap_bins='cut', node_cmap=None, link_cmap=None)
   m_epn
 
+.. raw:: html
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe src="_static/base_map_epn.html" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+    </div>
+
+**Figure**: EPN Outputs on OpenStreetMap.
 
 .. figure:: figures/dsm_epn.png
    :scale: 30%
