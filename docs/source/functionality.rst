@@ -17,6 +17,29 @@ Functionality Analysis of Buildings is performed by combining the physical damag
    Partially Functional: Building is operable (1) but no electrical service (0)
    Non Functional: Building is non-operable (0) and [lectrical service is active (1) or no electrical service (0)]
 
+Following is an example of running functionality analysis - combining buildings and electrical poles::
+
+Step 1: Conducting Voronoi analysis in QGIS (this can be done using other tools):
+   
+   1. **Prepare Data:** load EPN layer and ensure it's in a projected coordinate system.
+   2. **Open Processing Toolbox:** go to `Processing` > `Toolbox`.
+   3. **Generate Voronoi Polygons:** search for `Voronoi polygons` in the toolbox, select EPN layer as input, specify output settings (study area boundary), and run the tool.
+   4. **Connect Building to Voronoi Layer:** intersect building layer to voronoi layer to assign dependent voronoi service area and/or dependent electrical pole. 'vid' field in the building layer is obtained through this process and vid represents epn id, as well as voronoi id corresponds to a building
+
+Step 2: Combining buildings and electrical poles results:
+
+   # Building inventory with voronoi and damage info
+   building_dmg.head()
+   
+   # Electrical poles damage result
+   result_epn = result_epn_damage[['id', 'dmg']].rename(columns={'dmg': 'dmg_epn','id':'id_epn'})
+   
+   # Building Data - merging dmg to building invetory
+   blg_epn_results = pd.merge(building_dmg, result_epn, left_on='vid', right_on='id_epn')
+   
+   # Calculate Functionality State: 'FS'
+   df_func = calculate_fs(blg_epn_results, 'dmg', 'dmg_epn')
+
 Summary Damage
 -------------------------------
 .. figure:: figures/functionality.png
