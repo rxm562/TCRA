@@ -246,7 +246,7 @@ Importing Dependencies
   result_blg_damage.head(2)
   
   # plotting wind speed
-  plot_scatter(result_blg_damage, 'x', 'y', 'mph', save_path='wind_speed.png')
+  plot_scatter(result_blg_damage, 'x', 'y', 'mph',  colorbar_label='mph', save_path='wind_speed.png')
 
 .. figure:: figures/wind_speed.png
    :scale: 30%
@@ -257,7 +257,7 @@ Importing Dependencies
 .. code-block:: console
 
   # plotting damage states
-  plot_scatter(result_blg_damage, 'x', 'y', 'dmg', save_path='blg_dmg_states_unrehab.png')
+  plot_scatter(result_blg_damage, 'x', 'y', 'dmg',  colorbar_label='dmg', save_path='blg_dmg_states_unrehab.png')
 
 .. figure:: figures/blg_dmg_states_unrehab.png
    :scale: 30%
@@ -295,7 +295,7 @@ Importing Dependencies
   result_bldg_pf.head(2)
   
   # plotting damage failure probability
-  plot_scatter(result_bldg_pf, 'x', 'y', 'pf', save_path='pf.png')
+  plot_scatter(result_bldg_pf, 'x', 'y', 'pf',  colorbar_label='pf', save_path='pf.png')
 
 .. figure:: figures/pf.png
    :scale: 30%
@@ -545,7 +545,7 @@ Importing Dependencies
   result_epn_damage= pd.merge(DS_Prob, df_epn_ds, on='id')
     
   # plotting damage state maps
-  plot_scatter(result_epn_damage, 'x', 'y', 'dmg', save_path='dsm_epn.png')
+  plot_scatter(result_epn_damage, 'x', 'y', 'dmg',  colorbar_label='dmg', save_path='dsm_epn.png')
 
   # Plot Damage
   node=result_epn_damage.loc[0:,'x': 'y']
