@@ -1,13 +1,18 @@
-import pandas as pd
+"""
+The tcra social analysis module contains function to perform
+social impacts analysis by connecting physical damage to social system.
+
+"""
 
 def categorize_area(area):
+    
     """ this function estimates replacement cost by archetype using unit replacement cost per unit area. 
     cost_dict is required to be updated based on the local construction cost.
     
     Parameters
     ----------
     inp_file_name: 
-        unit replacement cost, building footprint area, no. of story/floor.
+        area, building footprint area, no. of story/floor.
     """
     
     if area < 110:
