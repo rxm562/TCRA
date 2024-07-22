@@ -3,7 +3,8 @@ The tcra cost module estimates building replacement cost that required for loss 
 
 """
 
-# Dictionary to map building types and numerical floors to cost in USD
+# Dictionary to map building types and numerical floors to cost in USD per unit area
+
 cost_dict = {
     'MSF1': {1: 488},
     'MSF2': {2: 1343, 3: 2072},
@@ -26,12 +27,25 @@ cost_dict = {
 # Function to map the cost and calculate FCost
 def map_cost(data):
     """ this function estimates replacement cost by archetype using unit replacement cost per unit area. 
-    cost_dict is required to be updated based on the local construction cost.
+    cost_dict dictionary is required to be updated based on the local construction cost.
     
     Parameters
     ----------
     inp_file_name: 
         unit replacement cost, building footprint area, no. of story/floor.
+             
+    Parameters
+    ----------
+    data : budiling inventory that inclues Floor, area and building structural archetype
+    type : building structural archetype
+    Floor : no. of floors
+    area : building footprint area
+    
+    Returns
+    -------
+    UC : unit replacement cost of building per unit area
+    RCost: building replacement cost
+        
     """
     
     costs = []
