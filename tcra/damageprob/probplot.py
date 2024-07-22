@@ -5,15 +5,19 @@ def plot_lognormal_distribution(result_bldg):
     
     Parameters
     ----------
-    pf : probability of failure estimated
-        Monte Carlo simulation
-    df : building inventory dataframe with damage state
-        dmg - damage state
+    pf : 
+        probability of failure estimated - Monte Carlo simulation
+    df : 
+        building inventory dataframe with damage state
+    dmg :
+        damage state
 
     Returns
     -------
-    pdf : probability density function
-    cdf : cumulative distribution function
+    pdf : 
+        probability density function
+    cdf : 
+        cumulative distribution function
     """
     
     # Prepare data
