@@ -11,13 +11,16 @@ def calculate_fs(df, dmg_col, dmg_epn_col):
             
     Parameters
     ----------
-    dmg_col : building inventory with damage state of building
+    dmg_col : 
+        building inventory with damage state of building
        
-    dmg_epn_col : electrical system inventory with failure state
+    dmg_epn_col : 
+        electrical system inventory with failure state
 
     Returns
     -------
-    FS : functionality of building
+    FS : 
+        functionality of building
         
     """
     def determine_fs(row):
