@@ -2,6 +2,7 @@
 def plot_lognormal_distribution(result_bldg):
     """ 
     this function plots probability distribution functions for fitted lognormal probability of failure data.
+    
     Parameters
     ----------
     pf : probability of failure estimated
