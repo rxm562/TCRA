@@ -5,18 +5,33 @@ physical damage using existing fragility curves for building archetypes.
 """
     
 class CycloneParameters:
-    """ This is Damage Probability Analysis class. This class estimates probabilities of various damage states.
-    
-    Parameters
-    -------------------
-    inp_file_name: 
-        building invetory, failure state keys that defines failure.
+    """ 
+    This is Damage Probability Analysis class. This class estimates probabilities of various damage states.
+        
     """
     
     def __init__(self, data):
         self.data = data
 
     def estimate_parameters(self):
+        """ 
+        Estimate cylone (i.e., hurricane) hazard parameters.
+        
+        Parameters
+        ----------
+        Lat : Latitude
+        Long : Longitude
+        CP : Central Pressure (millibar)
+
+        Returns
+        -------
+        Δp : Central Pressure Difference (millibar)
+        Rmax : Radius to max wind speed (km)
+        B : Holland Parameter
+        ρ : Air density
+        Ω : Earth's angular velocity (rad/s)
+        """
+        
         # Initialize lists for parameters
         self.Lat = []          # Latitude
         self.Long = []         # Longitude
@@ -61,6 +76,22 @@ class CycloneParameters:
         return df_track
 
     def calculate_wind_speeds(self, df_track, blg):
+        
+        """ 
+        Estimate wind speed at structure site.
+        
+        Parameters
+        ----------
+        df_track : Cyclone track with estimated parameter based on estimate_parameters function
+        blg : building inventory
+
+        Returns
+        -------
+        Vmph : wind speed (mph)
+        bldg_wind: building inventory with estimated wind speed
+        VG: gradient wind speed.
+        
+        """
         Vmph = []
 
         # Calculate gradient wind speed for each cyclone data point
