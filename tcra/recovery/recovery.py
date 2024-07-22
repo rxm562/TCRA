@@ -1,5 +1,6 @@
 """
-These tcra rep, rep_EPN, recovery_monte_carlo_simulation functions calculate estimated repair times and Monte Carlo simulation for recovery process.
+These tcra rep, rep_EPN, recovery_monte_carlo_simulation functions calculate estimated repair times 
+and Monte Carlo simulation for recovery process.
 
 """
 def rep(data):
@@ -9,8 +10,20 @@ def rep(data):
     
     Parameters
     ----------
-    inp_file_name: 
-        building invetory, damage states.
+    data: 
+        building invetory with damage states and occupancy type
+        
+    dmg : 
+        building damage state
+       
+    Occupancy : 
+        building occupancy type based on HAZUS classification
+
+    Returns
+    -------
+    recovery :
+        recovery time
+        
     """
     params = {
         'RES1': {4: 720, 3: 360, 2: 120, 1: 5, 0: 0},
@@ -55,10 +68,32 @@ def rep(data):
 def recovery_monte_carlo_simulation(data, num_simulations):
     """ 
     this function simulate Monte Carlo process of recovery of buildings given damage level.
+    
     Parameters
     ----------
-    inp_file_name: 
-        building invetory, damage states, num_simulations: number of simulaitons.
+    data: 
+        building invetory with damage states and occupancy type
+
+    num_simulations: 
+        number of simulaitons.
+    dmg : 
+        building damage state
+       
+    Occupancy : 
+        building occupancy type based on HAZUS classification
+
+    Returns
+    -------
+    tt:
+        recovery time in days
+    all_simulations:
+        recovery time from all Monte Carlo sampling
+    mean_simulation:
+        mean recovery time from all sampling
+    min_simulation:
+        minimum recovery time from all sampling
+    max_simulation:
+        maximum recovery time from all sampling
     """
     all_simulations = []
 
@@ -82,15 +117,26 @@ def recovery_monte_carlo_simulation(data, num_simulations):
     return tt, all_simulations, mean_simulation, min_simulation, max_simulation
 
 
-
 def rep_EPN(data):
     """ this function estimates repair time (days) for damage electrical poles. parameters need to be adjusted as required.
     0: non failure, 1: failure
+    
     Parameters
     ----------
-    inp_file_name: 
-        epn invetory, damage states.
+    data: 
+        epn invetory
+    dmg_pole:
+        electrical pole damage state
+    params:
+        a dictionary provides expected recovery time for recovery time for damaged electrical poles.
+
+    Returns
+    -------
+    recovery : 
+        recovery time in days
+        
     """
+
     params = {
         1: 10,
         0: 0,
