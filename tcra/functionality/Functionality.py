@@ -1,18 +1,29 @@
 """
-The tcra functionality analysis module contains function to perform
-social impacts analysis by connecting physical damage to social system.
+The tcra functionality analysis module contains function to estimate functionality
+of buildings by connecting performance of building and electrical system.
 
 """
 
 
 def calculate_fs(df, dmg_col, dmg_epn_col):
-    """ this function estimates replacement cost by archetype using unit replacement cost per unit area. 
-    cost_dict is required to be updated based on the local construction cost.
+    """ 
+    this function estimates functionality of buildings.
     
     Parameters
     ----------
     inp_file_name: 
         unit replacement cost, building footprint area, no. of story/floor.
+        
+    Parameters
+    ----------
+    dmg_col : building inventory with damage state of building
+       
+    dmg_epn_col : electrical system inventory with failure state
+
+    Returns
+    -------
+    FS : functionality of building
+        
     """
     def determine_fs(row):
         if row[dmg_col] <= 2 and row[dmg_epn_col] == 0:
