@@ -13,31 +13,39 @@ class DamageProbabilityCalculator:
 
     Parameters
     ----------
-    pf : probability of failure estimated
-        Monte Carlo simulation
-    df : building inventory dataframe with damage state
-        dmg - damage state
+    pf : 
+        probability of failure estimated from Monte Carlo simulation
+    df : 
+        building inventory dataframe with damage state
+    dmg :
+        damage state
 
     Returns
     -------
-    pdf : probability density function
-    cdf : cumulative distribution function
+    pdf : 
+        probability density function
+    cdf : 
+        cumulative distribution function
     
     """
     def __init__(self, failure_state_keys):
         self.failure_state_keys = failure_state_keys
 
     def calc_probability_failure_value(self, ds_sample):
-        """Calculate the probability of failure given damage states of buildings.
+        """
+        Calculate the probability of failure given damage states of buildings.
+        
         Parameters
         ----------
-        failure_state_keys: failure key states
-                            define the failure based on damage states
-        ds_sample : building inventory samples
+        failure_state_keys: 
+            failure key states - define the failure based on damage states
+        ds_sample : 
+            building inventory samples
         
         Returns
         -------
-        func: estimate number of times structure is failied from total number of samples
+        func: 
+            estimate number of times structure is failied from total number of samples
         """
         
         count = 0
@@ -55,21 +63,28 @@ class DamageProbabilityCalculator:
 
     def sample_damage_interval(self, bldg_result, damage_interval_keys, num_samples, seed):
 
-        """Calculate damage invervals and assign damage states to structure in each sampling.
+        """
+        Calculate damage invervals and assign damage states to structure in each sampling.
         
         Parameters
         ----------
-        damage_interval_keys: damage interval
-                              define damage inteval based on damage states
-        bldg_result : building inventory with damage states
+        damage_interval_keys: 
+            damage interval - define damage inteval based on damage states
+        bldg_result : 
+            building inventory with damage states
 
-        num_samples : number of Monte Carlo sampling
-        seed: generate pseudo-random numbers
+        num_samples : 
+            number of Monte Carlo sampling
+        seed: 
+            generate pseudo-random numbers
         
         Returns
         -------
-        ki: ids
-        dt: probability of failure (pf)
+        ki: 
+            ids
+        dt: 
+            probability of failure (pf)
+        
         """
 
         ki = []
