@@ -6,13 +6,20 @@ social impacts analysis by connecting physical damage to social system.
 
 def categorize_area(area):
     
-    """ this function estimates replacement cost by archetype using unit replacement cost per unit area. 
-    cost_dict is required to be updated based on the local construction cost.
+    """ 
+    this function defines base function to estimate number of units in a building.
     
     Parameters
     ----------
-    inp_file_name: 
-        area, building footprint area, no. of story/floor.
+    area : 
+        building footprint area
+    Floor :
+        no. of story/floor.
+
+    Returns
+    -------
+    num : returning unit number
+    
     """
     
     if area < 110:
@@ -25,12 +32,21 @@ def categorize_area(area):
         return 4
 
 def categorize_areas(df):
-    """ this function estimates replacement cost by archetype using unit replacement cost per unit area. 
-    cost_dict is required to be updated based on the local construction cost.
+    """ 
+    this function assign no of units to building
     
     Parameters
-    ----------
-    inp_file_name: 
-        unit replacement cost, building footprint area, no. of story/floor.
+    ----------    
+    df :
+        inventory 
+    area : 
+        building footprint area
+    Floor :
+        no. of story/floor.
+
+    Returns
+    -------
+    num : returning unit number
+    
     """
     return [categorize_area(area) for area in df['area']]
