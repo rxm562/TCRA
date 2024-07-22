@@ -8,12 +8,7 @@ of buildings by connecting performance of building and electrical system.
 def calculate_fs(df, dmg_col, dmg_epn_col):
     """ 
     this function estimates functionality of buildings.
-    
-    Parameters
-    ----------
-    inp_file_name: 
-        unit replacement cost, building footprint area, no. of story/floor.
-        
+            
     Parameters
     ----------
     dmg_col : building inventory with damage state of building
