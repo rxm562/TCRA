@@ -19,17 +19,25 @@ class CycloneParameters:
         
         Parameters
         ----------
-        Lat : Latitude
-        Long : Longitude
-        CP : Central Pressure (millibar)
+        Lat : 
+            Latitude
+        Long : 
+            Longitude
+        CP : 
+            Central Pressure (millibar)
 
         Returns
         -------
-        Δp : Central Pressure Difference (millibar)
-        Rmax : Radius to max wind speed (km)
-        B : Holland Parameter
-        ρ : Air density
-        Ω : Earth's angular velocity (rad/s)
+        Δp : 
+            Central Pressure Difference (millibar)
+        Rmax : 
+            Radius to max wind speed (km)
+        B : 
+            Holland Parameter
+        ρ : 
+            Air density
+        Ω : 
+            Earth's angular velocity (rad/s)
         """
         
         # Initialize lists for parameters
@@ -82,14 +90,19 @@ class CycloneParameters:
         
         Parameters
         ----------
-        df_track : Cyclone track with estimated parameter based on estimate_parameters function
-        blg : building inventory
+        df_track : 
+            Cyclone track with estimated parameter based on estimate_parameters function
+        blg : 
+            building inventory
 
         Returns
         -------
-        Vmph : wind speed (mph)
-        bldg_wind: building inventory with estimated wind speed
-        VG: gradient wind speed.
+        Vmph : 
+            wind speed (mph)
+        bldg_wind: 
+            building inventory with estimated wind speed
+        VG: 
+            gradient wind speed.
         
         """
         Vmph = []
