@@ -10,7 +10,7 @@ def rep(data):
     
     Parameters
     ----------
-    data: 
+    data : 
         building invetory with damage states and occupancy type
         
     dmg : 
@@ -71,10 +71,10 @@ def recovery_monte_carlo_simulation(data, num_simulations):
     
     Parameters
     ----------
-    data: 
+    data : 
         building invetory with damage states and occupancy type
 
-    num_simulations: 
+    num_simulations : 
         number of simulaitons.
     dmg : 
         building damage state
@@ -84,17 +84,19 @@ def recovery_monte_carlo_simulation(data, num_simulations):
 
     Returns
     -------
-    tt:
+    tt :
         recovery time in days
-    all_simulations:
+    all_simulations :
         recovery time from all Monte Carlo sampling
-    mean_simulation:
+    mean_simulation :
         mean recovery time from all sampling
-    min_simulation:
+    min_simulation :
         minimum recovery time from all sampling
-    max_simulation:
+    max_simulation :
         maximum recovery time from all sampling
+    
     """
+    
     all_simulations = []
 
     for _ in range(num_simulations):
@@ -123,11 +125,11 @@ def rep_EPN(data):
     
     Parameters
     ----------
-    data: 
+    data : 
         epn invetory
-    dmg_pole:
+    dmg_pole :
         electrical pole damage state
-    params:
+    params :
         a dictionary provides expected recovery time for recovery time for damaged electrical poles.
 
     Returns
