@@ -1,5 +1,5 @@
 """
-The tcra DamageProbabilityCalculator class estimates probabilites of damage states.
+The tcra plot_scatter and plot_interactive_map funtions to plot results
 
 """
 
@@ -30,8 +30,13 @@ def plot_scatter(plot_data, x_col, y_col, color_col, figsize=(4, 3), color_map=N
         Label for the y-axis
     colorbar_label (str):
         Label for the color bar
+        
+    Returns
+    -------
     save_path (str): 
         Path to save the figure (default is None, meaning not saving the figure)
+    plt.show():
+        plotting map
     """
     if color_map is None:
         color_map = ListedColormap(['blue', 'green', 'yellow', 'orange', 'red'])
@@ -52,9 +57,17 @@ def plot_interactive_map(node, node_attribute=None, node_size=5, node_cmap_bins=
     
     Parameters
     ----------
-    inp_file_name: 
     node:
-        building invetory with result.
+        building invetory with result
+    node_size: 
+        size of doc plot
+    node_attribute: 
+        the attribute to plot
+        
+    Returns
+    -------
+    m: 
+        interactive map plotting on OpenStreetMap
     """
     if node_cmap is None:
         node_cmap = ['cornflowerblue', 'forestgreen', 'gold', 'firebrick']
