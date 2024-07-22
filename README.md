@@ -1,6 +1,6 @@
 # TCRA
 **Tropical Cyclone Risk Analysis [TCRA]** 
-The documentation of this tool is published here (https://tcra.readthedocs.io)
+The documentation of this tool is published here: [TCRA documentation](https://tcra.readthedocs.io)
 
 
 Overview
